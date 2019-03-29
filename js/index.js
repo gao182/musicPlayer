@@ -1,17 +1,5 @@
-function $(select) {
-	return document.querySelector(select);
-}
-function $$(select) {
-	return document.querySelectorAll(select);
-}
-
-var audioObj = new Audio();
-var sortInt = 0;
-var musicObj = [];
-var setTime;
-
 //通过ajax获取json数据
-function getMusiclist(callee){
+/*function getMusiclist(callee){
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'https://gao182.github.io/musicPlayer/css/intor.json', true);
 	xhr.onload = function() {
@@ -29,11 +17,64 @@ function getMusiclist(callee){
 	}
 	xhr.send() 
 }
-
+*/
 
 //建立操作音乐的函数，在数据获得后执行
-getMusiclist(function(listObj){
-	musicObj = listObj;
+window.onload = function(){
+	var musicObj = [{
+		"name" : "生僻字",
+		"writer" :"陈柯宇",
+		"src" : "http://www.ytmp3.cn/down/56174.mp3",
+		"poster" : "http://p1.music.126.net/VeYGMisCd0Jvw9TUtqZwqQ==/109951163803411503.jpg"
+	},{
+		"name" : "打上花火",
+		"writer" :"DAOKO / 米津玄師",
+		"src" : "http://www.ytmp3.cn/down/43353.mp3",
+		"poster" : "http://p1.music.126.net/ZUCE_1Tl_hkbtamKmSNXEg==/109951163009282836.jpg"
+	},{
+		"name" : "Lemon",
+		"writer" :"米津玄師",
+		"src" : "http://www.ytmp3.cn/down/51031.mp3",
+		"poster" : "http://p2.music.126.net/6IeZ9MiSSDXifj74nzH6ww==/109951163561494000.jpg"
+	},{
+		"name" : "my all",
+		"writer" :"浜崎あゆみ",
+		"src" : "http://www.ytmp3.cn/down/36823.mp3",
+		"poster" : "http://p1.music.126.net/JqX4G4ocCgxMf8azzhUKAQ==/109951163244714366.jpg"
+	},{
+		"name" : "孙大剩",
+		"writer" :"赵静 / 白亮",
+		"src" : "http://www.ytmp3.cn/down/50623.mp3",
+		"poster" : "http://p2.music.126.net/5PI5cPypdVcn8rm2YerPsg==/109951163005769076.jpg"
+	}];
+	function $(select) {
+		return document.querySelector(select);
+	}
+	function $$(select) {
+		return document.querySelectorAll(select);
+	}
+
+	var audioObj = new Audio();
+	var sortInt = 0;
+	var setTime;
+
+
+	//音乐加载后播放，及信息
+	function loadMusic(list) {
+		audioObj.autoplay = true;
+		audioObj.src = list['src'];
+
+		$$('.music-player .name')[0].innerText = list['name'];
+		$$('.music-player .writer')[0].innerText = list['writer'];
+		$$('.music-player .writer-img')[0].src = list['poster'] + '?param=100y100';
+		$$('.music-player .name')[1].innerText = list['name'];
+		$$('.music-player .writer')[1].innerText = list['writer'];
+		$$('.music-player .writer-img')[1].src = list['poster'] + '?param=100y100';
+		$('.content .poster').src = list['poster'] + '?param=600y600';
+		$(".timeline .progress-now").style.width = '0';
+		$(".volumeline .progress-now").style.width = audioObj.volume * 100 + '%';
+
+	}
 	loadMusic(musicObj[sortInt]);
 	musicList(musicObj);
 
@@ -73,24 +114,6 @@ getMusiclist(function(listObj){
 			this.classList.replace('icon-single', 'icon-cycle');
 		}
 	}
-});
-
-//音乐加载后播放，及信息
-function loadMusic(list) {
-	audioObj.autoplay = true;
-	audioObj.src = list['src'];
-
-	$$('.music-player .name')[0].innerText = list['name'];
-	$$('.music-player .writer')[0].innerText = list['writer'];
-	$$('.music-player .writer-img')[0].src = list['poster'] + '?param=100y100';
-	$$('.music-player .name')[1].innerText = list['name'];
-	$$('.music-player .writer')[1].innerText = list['writer'];
-	$$('.music-player .writer-img')[1].src = list['poster'] + '?param=100y100';
-	$('.content .poster').src = list['poster'] + '?param=600y600';
-	$(".timeline .progress-now").style.width = '0';
-	$(".volumeline .progress-now").style.width = audioObj.volume * 100 + '%';
-
-}
 
 //音乐时间判断
 function countTimes(time){
@@ -246,4 +269,4 @@ function musicList(musicObj) {
 	musiclist.appendChild(fragment);
 }
 
-
+}
