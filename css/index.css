@@ -1,0 +1,152 @@
+body,html,ul,li,p,i,span {
+	padding: 0;
+	margin: 0;
+}
+ul { list-style: none;}
+a { text-decoration: none;}
+body,html {
+	width: 100%;
+	height: 100%;
+	font-family: 'Arial', 'Helvetica', sans-serif; 
+	background-color: #d9d9d9;
+}
+main {
+	color: #272b36;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	background-color: #272b36;
+}
+
+
+/*音乐列表播放器*/
+.music-player {
+	position: relative;
+	background-color: #272b36;
+	color: white;
+}
+.music-player .writer-img {
+	margin: 10px 6px;
+	width: 64px;
+	border-radius: 32px;
+}
+.music-player .intro {
+	position: absolute;
+	top: 50%;
+	left: 90px;
+	transform: translate(0,-50%);
+	width: 33%;
+	font-weight: bold;
+}
+.music-player .control {
+	position: absolute;
+	top: 50%;
+	left: 190px;
+	transform: translate(0,-50%);
+	cursor: pointer;
+}
+.music-player .control i {
+	font-size: 22px;
+	margin: 0 4px;
+	vertical-align: middle;
+}
+.music-player .control .play i {
+	font-size: 34px;
+}
+
+/*文字信息超出隐藏*/
+.txtover,
+.musiclist .list-item span{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.musiclist .list-item .sort {
+	color: #628cfa;
+}
+/*音乐名 超出隐藏*/
+.musiclist .list-item .name {
+	position: absolute;
+	left: 50px;
+	top: 50%;
+	transform: translate(0,-50%);
+	width: 40%;
+}
+/*作者 超出隐藏*/
+.musiclist .list-item .writer {
+	position: absolute;
+	left: 178px;
+	top: 50%;
+	transform: translate(0,-50%);
+	width: 24%
+}
+/*按钮*/
+.musiclist .list-item .play {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+/*播放时 选中样式*/
+.musiclist .active {
+	padding: 16px 20px;
+	background-color: #90949e;
+	color: white;
+}
+.musiclist .active .sort {
+	color: white;
+}
+
+
+
+/*时间轴*/
+.timeline .bar {
+	position: absolute;
+	left: 40px;
+	top: 50%;
+	transform: translate(0,-50%);
+	width: 280px;
+}
+.timeline .bar>div {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translate(0,-50%);
+	height: 6px;
+	border-radius: 6px;
+}
+.timeline .bar>.progress-total {
+	width: 100%;
+	background-color: #474859;
+}
+.timeline .bar>.progress-now {
+	width: 0;
+	background-color: #ff7900;
+}
+.timeline .time-total{
+	position: absolute;
+	left: 330px;
+	top: 0;
+}
+
+/*音量轴*/
+
+.volumeline .bar>div {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translate(0,-50%);
+	height: 6px;
+	border-radius: 6px;
+}
+.volumeline .bar>.progress-total {
+	width: 100%;
+	background-color: #474859;
+}
+.volumeline .bar>.progress-now {
+	width: 100%;
+	background-color: #6ed0da;
+}

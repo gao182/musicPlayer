@@ -1,0 +1,120 @@
+@media screen and (max-device-width:800px){
+	main {
+		width: 100%;
+	}
+	body,html, {
+		font-size: 20px;
+		line-height: 1.4;
+	}
+
+	/*音乐列表 宽100% 左对齐*/
+	.music-top {
+		width: 100%;
+		text-align: left;
+		background-color: white;
+	}
+	/*播放列表*/
+	.musiclist {
+		position: relative;
+		width: 100%;
+		height: 140px;
+		overflow: scroll;
+	}
+	.list-item {
+		position: relative;
+		padding: 8px 20px;
+		cursor: pointer;
+		overflow: scroll;
+		font-size: 18px;
+	}
+	.musiclist .list-item .play i {
+		font-size: 20px;
+	}
+
+	/*上部播放器隐藏*/
+	.music-top .music-player {
+		display: none;
+	}
+
+	/*内容 歌词板背景*/
+	.content {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		margin-left: 0;
+		text-align: center;
+	}
+
+	/*内容 歌词板背景*/
+	.content .poster-panel {
+		display: none;
+	}
+	.content .poster{
+		margin-top: 30px;
+		width: 60%;
+		border: 60px solid black;
+		border-radius: 400px;
+		box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.4);
+	}
+
+	/*音乐列表 宽400 左对齐*/
+	.music-player .writer-img {
+		margin: 10px 6px;
+		width: 80px;
+		border-radius: 40px;
+	}
+	.music-player .intro {
+		left: 110px;
+		width: 46%;
+	}
+	.music-player .control {
+		right: 0;
+	}
+	.music-player .control i {
+		font-size: 26px;
+		margin: 0 10px;
+		vertical-align: middle;
+	}
+	.music-player .control .play i {
+		font-size: 42px;
+	}
+
+	/*时间轴*/
+	footer .music-footer .timeline {
+		position: relative;
+		height: 12%;
+		padding: 0 10px;
+		cursor: pointer;
+	}
+	.timeline .bar {
+		position: absolute;
+		left: 70px;
+		top: 50%;
+		transform: translate(0,-50%);
+		width: 260px;
+	}
+	.timeline .time-total{
+		left: 340px;
+	}
+	/*循环*/
+	.music-footer .cycle i {
+		display: inline-block;
+		padding: 10px 8px; 
+		font-size: 20px;
+		cursor: pointer;
+	}
+	/*音量轴*/
+	.music-footer .volumeline {
+		position: absolute;
+		left: 50px;
+		top: 82%;
+		cursor: pointer;
+	}
+	.volumeline .bar {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translate(0,-50%);
+		width: 200px;
+	}
+}
