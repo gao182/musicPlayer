@@ -13,10 +13,12 @@ var setTime;
 //通过ajax获取json数据
 function getMusiclist(callee){
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', '../css/intor.json', true);
+	xhr.open('GET', 'https://gao182.github.io/musicPlayer/css/intor.json', true);
 	xhr.onload = function() {
 		if (xhr.status >=200 && xhr.status <= 300 || xhr.status === 304) {
 			callee(JSON.parse(this.responseText));
+		}else{
+			console.log(xhr.status, '请求发生错误');
 		}
 	}
 	xhr.onerror = function() {
