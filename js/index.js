@@ -10,6 +10,24 @@ var sortInt = 0;
 var musicObj = [];
 var setTime;
 
+//通过ajax获取json数据
+function getMusiclist(callee){
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', '../css/intor.json', true);
+	xhr.onload = function() {
+		if (xhr.status >=200 && xhr.status <= 300 || xhr.status === 304) {
+			callee(JSON.parse(this.responseText));
+		}
+	}
+	xhr.onerror = function() {
+		console.log(xhr.status, '请求发生错误');
+	}
+	xhr.ontimeout = function() {
+		console.log(xhr.status, '请求发生错误');
+	}
+	xhr.send() 
+}
+
 
 //建立操作音乐的函数，在数据获得后执行
 getMusiclist(function(listObj){
@@ -227,20 +245,3 @@ function musicList(musicObj) {
 }
 
 
-//通过ajax获取json数据
-function getMusiclist(callee){
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', '../css/intor.json', true);
-	xhr.onload = function() {
-		if (xhr.status >=200 && xhr.status <= 300 || xhr.status === 304) {
-			callee(JSON.parse(this.responseText));
-		}
-	}
-	xhr.onerror = function() {
-		console.log(xhr.status, '请求发生错误');
-	}
-	xhr.ontimeout = function() {
-		console.log(xhr.status, '请求发生错误');
-	}
-	xhr.send() 
-}
