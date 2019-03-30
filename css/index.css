@@ -21,7 +21,15 @@
 		padding: 8px 20px;
 		cursor: pointer;
 	}
-
+	/*播放时 选中样式*/
+	.musiclist .active {
+		padding: 16px 20px;
+		background-color: #90949e;
+		color: white;
+	}
+	.musiclist .active .sort {
+		color: white;
+	}
 
 	/*内容 歌词板背景*/
 	.content {

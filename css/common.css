@@ -88,16 +88,6 @@ footer {
 	top: 50%;
 	transform: translate(0,-50%);
 }
-/*播放时 选中样式*/
-.musiclist .active {
-	padding: 16px 20px;
-	background-color: #90949e;
-	color: white;
-}
-.musiclist .active .sort {
-	color: white;
-}
-
 
 
 /*时间轴*/
