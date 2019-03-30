@@ -37,9 +37,9 @@ getMusiclist(function(listObj){
 	loadMusic(musicObj[sortInt]);
 	musicList(musicObj);
 
-	//音乐栏选中状态
-	$$('.list-item')[sortInt].classList.add('active');
-	$$('.list-item .iconfont')[sortInt].classList.replace('incon-pause', 'incon-play');
+	//页面加载后第一个数据
+	$('.musiclist .list-item .name').innerText = musicObj[0]['name'];
+	$('.musiclist .list-item .writer').innerText = musicObj[0]['writer'];
 
 	//控制台按钮
 	$$('.control .play')[0].onclick = function(e) { switchMusic(e) };
@@ -113,10 +113,10 @@ audioObj.onplaying = function(){
 
 	for (var i = 0 ; i < musicObj.length ; i++) {
 		$$('.list-item')[i].classList.remove('active');
-		$$('.list-item .iconfont')[i].classList.replace('incon-play', 'incon-pause');
+		$$('.list-item .iconfont')[i].classList.replace('icon-play', 'icon-pause');
 	}
 	$$('.list-item')[sortInt].classList.add('active');
-	$$('.list-item .iconfont')[sortInt].classList.replace('incon-pause', 'incon-play');
+	$$('.list-item .iconfont')[sortInt].classList.replace('icon-pause', 'icon-play');
 
 	//定时器，每0.2s执行一次
 	setTime = setInterval(function(){
@@ -170,21 +170,20 @@ function backMusic(){
 
 //点击音乐表
 function clickList(e) {
-	e.stopPropagation();
 	if (e.target.classList.contains('list-item')) {
-		sortInt = e.target.firstChild.innerText - 1;
+		sortInt = e.target.firstElementChild.innerText - 1;
 	}
 	else if (e.target.classList.contains('sort')) {
 		sortInt = e.target.innerText - 1;
 	}
 	else if (e.target.classList.contains('name')) {
-		sortInt = e.target.offsetParent.firstChild.innerText - 1;
+		sortInt = e.target.offsetParent.firstElementChild.innerText - 1;
 	}
 	else if (e.target.classList.contains('writer')) {
-		sortInt = e.target.offsetParent.firstChild.innerText - 1;
+		sortInt = e.target.offsetParent.firstElementChild.innerText - 1;
 	}
 	else if (e.target.classList.contains('iconfont')) {
-		sortInt = e.target.offsetParent.offsetParent.firstChild.innerText - 1;
+		sortInt = e.target.offsetParent.offsetParent.firstElementChild.innerText - 1;
 	}
 	else {
 		return;
@@ -212,7 +211,8 @@ function musicList(musicObj) {
 	var musiclist = $('.musiclist');
 	var fragment = document.createDocumentFragment();
 
-	for (var i =  0 ; i < musicObj.length; i++) {
+	//从第二个开始的数据
+	for (var i =  1 ; i < musicObj.length; i++) {
 		//创建单个li
 		var listItem = document.createElement('li');
 		listItem.setAttribute('class', 'list-item');

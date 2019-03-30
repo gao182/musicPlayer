@@ -1,4 +1,4 @@
-/*@media screen and (min-device-width:800px){*/
+@media screen and (min-device-width:800px){
 	body,html {
 		font-size: 14px;
 		line-height: 1.4;
@@ -88,4 +88,4 @@
 		transform: translate(0,-50%);
 		width: 50px;
 	}
-/*}*/
+}
