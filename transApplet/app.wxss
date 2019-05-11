@@ -1,0 +1,49 @@
+/**app.wxss**/
+@import "icon.wxss";
+
+.container {
+  height: 100vh;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  background-color: #f5f5f5;
+  font-size: 16px;
+}
+
+/*词块*/
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box .text-content{
+  flex-grow: 1;
+}
+.box .text-content view {
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.text-content .text-new {
+  font-size: 22px;
+}
+.text-content .control {
+  margin-left: -10px;
+}
+.text-content .control .iconfont {
+  margin: 0 10px;
+}
+.text-content .control .icon-starfill {
+  font-size: 23px;
+  color: #28b1ff;
+}
+.box .voice-play icon {
+  margin-right: 10px;
+  font-size: 30px;
+}
+.box .voice-play icon.active {
+  color: #28b1ff;
+}
+.clear {
+  text-align: center;
+  padding: 8px 0;
+  color: #28b1ff;
+}

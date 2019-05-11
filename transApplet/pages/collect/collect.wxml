@@ -1,0 +1,18 @@
+<!--pages/collect/collect.wxml-->
+<scroll-view scroll-y class="container">
+  <view class="box" wx:for="{{collect}}" wx:key="{{index}}">
+    <view class="text-content" bindtap="ontoindex" data-item="{{item}}">
+      <view class="text-new">{{item.translation}}</view>
+      <view class="text-old">{{item.query}}</view>
+      <view class="control">
+          <icon catchtap="onfullscreen" class="iconfont icon-fullscreen" id="{{index}}"></icon>
+          <icon catchtap="oncopy" class="iconfont icon-copy" data-text="{{item.translation}}"></icon>
+          <icon catchtap="oncollect" class="iconfont icon-star{{item.save==true?'fill' : ''}}" id="{{index}}" data-item="{{item}}"></icon>
+      </view>
+    </view>
+    <view class="voice-play">
+      <icon bindtap="onplaymp3" id="{{index}}" class="{{audio_id==index?'active' : ''}} iconfont icon-play" data-item="{{item}}"></icon>
+    </view>
+  </view>
+  <view class="clear" bindtap="onclear">一键清除</view>
+</scroll-view>

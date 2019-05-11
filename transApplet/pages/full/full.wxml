@@ -1,0 +1,6 @@
+<!--pages/full/full.wxml-->
+<view class="container">
+  <view class="translation">{{result.translation}}</view>
+  <view class="query">{{result.query}}</view>
+  <view  bindtap="onplaymp3" class="iconfont icon-play {{audioicon}}"></view>
+</view>

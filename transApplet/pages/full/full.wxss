@@ -1,0 +1,24 @@
+/* pages/full/full.wxss */
+view.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+}
+.container .translation {
+  margin: 3rpx 0;
+  font-size: 40rpx;
+}
+.container .query {
+  margin: 3rpx 0;
+  font-size: 30rpx;
+  opacity: .7;
+}
+.container .iconfont {
+  margin: 14rpx 0;
+  font-size: 48rpx;
+}
+.container .iconfont.active {
+  color: #28b1ff;
+}

@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/collect/collect",
+    "pages/history/history",
+    "pages/full/full"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#28b1ff",
+    "navigationBarTitleText": "快翻译",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#28b1ff",
+    "color": "#fff",
+    "selectedColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "实时翻译",
+        "iconPath": "image/logo.png",
+        "selectedIconPath": "image/logo1.png"
+      },
+      {
+        "pagePath": "pages/collect/collect",
+        "text": "收藏",
+        "iconPath": "image/collect.png",
+        "selectedIconPath": "image/collect1.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史记录",
+        "iconPath": "image/history.png",
+        "selectedIconPath": "image/history1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

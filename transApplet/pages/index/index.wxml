@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="input-container">
+    <icon class="iconfont icon-record"></icon>
+    <icon bindtap="onclose" hidden="{{hiddenclose}}" class="iconfont icon-close"></icon>
+    <textarea bindinput="oninput" bindblur="onconfirm" bindconfirm="onconfirm" placeholder="触摸开始输入文字..." placeholder-style="color:#ddd;" value="{{original}}"></textarea>
+  </view>
+  <view class="language-container">
+    <picker range="{{langArry}}" class="{{animate}}" bindchange="onpickerfrom">{{fromlang.chs}}</picker>
+    <icon bindtap="onchange" class="iconfont icon-arrow {{animate}}"></icon>
+    <picker range="{{langArry}}" class="{{animate}}" bindchange="onpickerto">{{tolang.chs}}</picker>
+  </view>
+  <view class="output-container">
+    <view class="box" hidden="{{hiddenoutput}}">
+      <view class="text-content">
+        <view class="text-new">{{result.translation}}</view>
+        <view class="text-old">{{result.query}}</view>
+        <view class="control" >
+          <icon bindtap="onfullscreen" class="iconfont icon-fullscreen"></icon>
+          <icon bindtap="oncopy" class="iconfont icon-copy"></icon>
+          <icon bindtap="oncollect" class="iconfont icon-star{{collecticon}}"></icon>
+        </view>
+      </view>
+      <view class="voice-play">
+        <icon bindtap="onplaymp3" class="iconfont icon-play {{audioicon}}"></icon>
+      </view>
+    </view>
+  </view>
+</view>

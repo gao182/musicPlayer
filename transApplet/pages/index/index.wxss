@@ -1,0 +1,66 @@
+/**index.wxss**/
+.container {
+  display: flex;
+  flex-flow: column;
+}
+.input-container {
+  padding: 6px 10px;
+  box-sizing: border-box;
+  background-color: white;
+}
+.input-container > icon.active {
+  color: #28b1ff;
+}
+.input-container textarea {
+  width: 100%;
+  height: 34vh;
+  margin-top: 6px;
+  overflow: scroll;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+.input-container .icon-close {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  padding: 2px 5px;
+  opacity: .6;
+  z-index: 2;
+}
+
+/*选择语言*/
+.language-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: white;
+}
+.language-container picker {
+  width: 38%;
+  padding: 10px 0;
+}
+.language-container picker.scale {
+  animation: scale .6s;
+}
+@keyframes scale
+{
+  50% {transform: scaleX(.3);}
+  100% {transform: scaleX(1);}
+}
+.language-container .icon-arrow {
+  width: 24%;
+  font-size: 34px;
+  color: #28b1ff;
+}
+.language-container .icon-arrow.scale {
+  animation: scale .6s;
+}
+
+/*译文*/
+.output-container {
+  padding: 18px 10px;
+  box-sizing: border-box;
+  flex-grow: 1;
+}
