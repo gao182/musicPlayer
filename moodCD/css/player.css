@@ -207,11 +207,11 @@ span.next:hover {
 	main.music-page aside {
 		margin-top: 6vh;
 		width: 26vh;
-		height: 50vh;
+		height: 46vh;
 	}
 	section aside .music-img {
 		width: 26vh;
-		height: 38vh;
+		height: 36vh;
 	}
 	section aside .control{
 		height: 10vh;
@@ -228,7 +228,7 @@ span.next:hover {
 	}
 	main .detail  .music-info{
 		position: absolute;
-		top: 55vh;
+		top: 50vh;
 		left: 0;
 		right: 0;
 	}
