@@ -3,7 +3,7 @@ body,h1,h3,ul,li,p,a {
 	margin: 0;
 	padding: 0;
 }
-ul {
+ul,li {
 	list-style: none;
 }
 a {
@@ -81,21 +81,30 @@ nav ul .icon-search {
 }
 @media (max-width: 700px){
 	.layout {
-		width: 84%;
+		width: 90%;
+	}
+	.playlist>.layout{
+		width: 82%;
 	}
 	nav .classify {
 		display: none;
 		position: absolute;
 		top: 0;
-		right: 16vw;
+		right: 10vw;
 		left: 0;
 		z-index: 1;
+	}
+	nav .classify a{
+		padding: 1vh 1.6vw;
 	}
 	nav .classify.active{
 		display: flex;
 	}
 	nav div.menu {
 		display: block;
+	}
+	main .songCD-name li{
+		margin: 0 2vh;
 	}
 }
 @media (min-width: 700px){

@@ -206,7 +206,15 @@ span.next:hover {
 @media (max-width: 700px) {
 	main.music-page aside {
 		margin-top: 6vh;
-		width: 40vw;
+		width: 26vh;
+		height: 50vh;
+	}
+	section aside .music-img {
+		width: 26vh;
+		height: 40vh;
+	}
+	section aside .control{
+		height: 10vh;
 	}
 	main.music-page .detail {
 		margin-top: 6vh;
@@ -217,6 +225,12 @@ span.next:hover {
 	}
 	main.music-page .detail .intro {
 		margin: 9vh 0;
+	}
+	main .detail  .music-info{
+		position: absolute;
+		top: 57vh;
+		left: 0;
+		right: 0;
 	}
 	main.music-page .intro li span {
 		font-size: 2.4vh;

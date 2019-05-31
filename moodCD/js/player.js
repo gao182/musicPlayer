@@ -1,6 +1,6 @@
 var Pageload = {
 	init : function() {
-		this.classifyid = document.cookie.match(name)['input'];
+		this.classifyid = document.location.search.split('=')[1];
 		this.my = location.search.search('my');
 		this.$detail = $('main>.detail');
 		this.$tags = this.$detail.find('.tag');
@@ -41,6 +41,7 @@ var Pageload = {
 		$.getJSON('//api.imjad.cn/cloudmusic/',
 			{type : 'playlist', id : _this.classifyid})
 		.done(function(rep){
+			console.log(rep)
 			_this.renderTag(rep.playlist);
 			Footer.renderData(rep.playlist.tracks);
 		}).fail(function(){
@@ -233,7 +234,7 @@ var Footer = {
 		var count = $('footer ul').find('li').length;
 		var liWidth = $('footer ul').find('li').outerWidth(true);
 		$('footer ul').css({
-			width : count * liWidth + 'px'
+			width : count * liWidth + 10 + 'px'
 		});
 	},
 	setLiwidth : function(data){

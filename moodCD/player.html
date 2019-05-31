@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="zh-cn">
 	<title>MoodCD Music</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<meta name="viewport"
+		content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<link rel="shortcut icon" href="css/logo.jpg">
 	<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1132834_q124ztvpmd.css">
 	<link rel="stylesheet" type="text/css" href="css/common.css">
 	<link rel="stylesheet" type="text/css" href="css/player.css">
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
 </head>
+
 <body>
 	<section>
 		<nav>
@@ -18,13 +22,13 @@
 						<input type="text" name="search">
 						<span class="iconfont icon-search"></span>
 					</li> -->
-					<li><a class="active" href="index.html">首页</a></li>
+					<li><a href="index.html">首页</a></li>
 					<li><a href="index.html">分类歌单</a></li>
-					<li><a href="player.html?type=my"  target="_blank">我的音乐</a></li>
+					<li><a class="active" href="player.html?type=my" target="_blank">我的音乐</a></li>
 					<li><a href="">登入</a></li>
 					<li><a href="">加入</a></li>
 				</ul>
-				<div class="menu" >
+				<div class="menu">
 					<span class="iconfont icon-menu"></span>
 				</div>
 				<div id="logo">
@@ -59,14 +63,16 @@
 						<span>20</span>
 					</li>
 				</ul>
-				<div class="music-bar">
-					<div class="bar">
-						<div class="bar-progress"></div>
+				<div class="music-info">
+					<div class="music-bar">
+						<div class="bar">
+							<div class="bar-progress"></div>
+						</div>
+						<time>00:00</time>
 					</div>
-					<time>00:00</time>
+					<div class="singer"></div>
+					<div class="lyc"></div>
 				</div>
-				<div class="singer"></div>
-				<div class="lyc"></div>
 			</div>
 		</main>
 		<footer class="playlist">
@@ -92,4 +98,5 @@
 	<div id="bg"></div>
 	<script type="text/javascript" src="js/player.js"></script>
 </body>
+
 </html>

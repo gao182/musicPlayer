@@ -70,7 +70,7 @@ main .layout span.iconfont:hover {
 /*歌单图文*/
 main .layout .box {
 	position: relative;
-	height: 42vh;
+	height: 46vh;
 	overflow: hidden;
 }
 main .layout ul {
@@ -79,7 +79,7 @@ main .layout ul {
 }
 main .layout li {
 	float: left;
-	height: 42vh;
+	height: 46vh;
 	width: 34vh;
 	margin: 0 1.6vh;
 	text-align: left;
@@ -119,16 +119,23 @@ footer div {
 	main .songCD-name {
 		margin-bottom: 4vh;
 	}
-	main .layout ul {
-		height: 42vh;
+	main .layout .icon-left {
+		left: 20vw;
+		top: 40vh;
 	}
-	main .layout li {
-		height: 42vh;
-		width: 40vw;
+	main .layout .icon-right {
+		right: 20vw;
+		top: 40vh;
 	}
-
+	main .layout .box {
+		height: 40vh;
+	}
+	main .layout li{
+		height: 40vh;
+		width: 30vh;
+	}
 	main .layout li .img {
-		height: 36vh;
+		height: 30vh;
 		background-size: cover;
 		background-position: center center;
 	}
