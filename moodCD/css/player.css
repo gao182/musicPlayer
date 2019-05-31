@@ -211,7 +211,7 @@ span.next:hover {
 	}
 	section aside .music-img {
 		width: 26vh;
-		height: 40vh;
+		height: 38vh;
 	}
 	section aside .control{
 		height: 10vh;
@@ -228,9 +228,13 @@ span.next:hover {
 	}
 	main .detail  .music-info{
 		position: absolute;
-		top: 57vh;
+		top: 55vh;
 		left: 0;
 		right: 0;
+	}
+	section .detail .singer,
+	section .detail .lyc {
+		margin-top: 1vh;
 	}
 	main.music-page .intro li span {
 		font-size: 2.4vh;
