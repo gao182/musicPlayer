@@ -123,12 +123,12 @@ audioObj.onplaying = function(){
 		$('.music-footer .timeline .time').innerText = countTimes(audioObj.currentTime);
 		$(".timeline .progress-now").style.width = Math.floor(audioObj.currentTime/audioObj.duration * 100) + '%';
 		setCss3($('.content .poster').style, audioObj.currentTime);
-	}, 200);
+	}, 1000);
 }
 
 //旋转光碟
 function setCss3(tag, time){
-	var rotate = "rotate("+ (22 * time) +"deg)";
+	var rotate = "rotate("+ (20 * time) +"deg)";
 	
 	tag["transform"] = rotate;
 	tag["-ms-transform"] = rotate;
@@ -136,10 +136,15 @@ function setCss3(tag, time){
 	tag["-webkit-transform"] = rotate;
 	tag["-o-transform"] = rotate;
 
-	tag["transition-duration"] = time/24 +"s";
-	tag["-moz-transition-duration"] = time/24 +"s";
-	tag["-webkit-transition-duration"] = time/24 +"s";
-	tag["-o-transition-duration"] = time/24 +"s";
+	tag["transition-duration"] = "1s";
+	tag["-moz-transition-duration"] = "1s";
+	tag["-webkit-transition-duration"] = "1s";
+	tag["-o-transition-duration"] = "1s";
+
+	tag["transition-timing-function"] = "linear";
+	tag["-moz-transition-timing-function"] = "linear";
+	tag["-webkit-transition-timing-function"] = "linear";
+	tag["-o-transition-timing-function"] = "linear";
 }
 
 //暂停音乐时
