@@ -1,0 +1,74 @@
+<!--miniprogram/pages/addJu/addJu.wxml-->
+<view class="container">
+  <view class="category">
+    <text class="category-juzi {{isShowjuzi? 'active':''}}" bindtap="showJuzi">句子</text>
+    <text class="category-juji {{isShowjuzi? '':'active'}}" bindtap="showJuji">句集</text>
+  </view>
+  <!--显示句子-->
+  <view class="form juzi" wx:if="{{isShowjuzi}}">
+    <textarea class="input-txt" maxlength="-1" placeholder-class="placeholder" 
+      placeholder="请在这里输入你喜欢或原创的句子，请不要发无意义的灌水文字哦。"
+      bindconfirm="inputJuzi" bindblur="inputJuzi" value="{{addjuzi.text}}">
+    </textarea>
+    <view class="input-img" bindtap="selectImg"
+      style="background-image: url({{addjuzi.imgUrl}})">
+    </view>
+    <view class="input-label">
+      <text class="iconfont icon-label"></text>
+      <label>标签</label>
+      <view class="box">
+        <input disabled="true" value="{{addjuzi.label}}" placeholder="必选项，最多选3个" placeholder-class="placeholder"></input>
+        <view class="label-panel">
+          <view wx:for="{{label}}" wx:key="label" data-value="{{item}}"
+            bindtap="selectLabel">
+            {{item}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="input-author">
+      <text class="iconfont icon-author"></text>
+      <label>作者</label>
+      <input placeholder="必填项..." placeholder-class="placeholder" 
+        bindconfirm="inputAuthor" bindblur="inputAuthor" value="{{addjuzi.author}}">
+      </input>
+    </view>
+    <view class="input-from">
+      <text class="iconfont icon-book"></text>
+      <label>出处</label>
+      <input placeholder="必填项..." placeholder-class="placeholder"
+        bindconfirm="inputFrom" bindblur="inputFrom" value="{{addjuzi.from}}">
+      </input>
+    </view>
+    <view class="input-juji" wx:if="{{juji.length > 0}}">
+      <text class="iconfont icon-juji"></text>
+      <label>句集</label>
+      <picker value="{{index}}" range="{{juji}}" bindchange="pickerChange">
+        <view class="picker">
+          当前选择：{{juji[index]}}
+        </view>
+      </picker>
+    </view>
+    <button class="input-btn" bindtap="publishJuzi">
+      发布句子
+    </button>
+  </view>
+
+  <!--显示句集-->
+  <view class="form juji" wx:else>
+    <view class="input-jujiname">
+      <input placeholder="句集名称" placeholder-class="placeholder" 
+        bindconfirm="inputJujiname" bindblur="inputJujiname" 
+        value="{{addjuji.jujiName}}"></input>
+    </view>
+    <textarea class="input-txt" maxlength="-1" placeholder-class="placeholder" 
+      placeholder="句集描述：为这个句集加上简单的描述"  value="{{addjuji.jujidesc}}"
+      bindconfirm="inputJuji" bindblur="inputJuji"></textarea>
+    <view class="input-img" bindtap="selectImg" 
+      style="background-image: url({{addjuji.imgUrl}})">
+    </view>
+    <button class="input-btn" bindtap="publishJuji">
+      发布句集
+    </button>
+  </view>
+</view>

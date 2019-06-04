@@ -1,0 +1,67 @@
+/* miniprogram/pages/addJu/addJu.wxss */
+.form {
+  width: 100%;
+  padding: 28rpx;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  height: 400rpx;
+  color: #7e7d7d;
+}
+
+.input-img {
+  margin: 30rpx 0;
+  width: 180rpx;
+  height: 140rpx;
+  border: 1px solid #eee;
+  background-size: cover;
+  background-position: center;
+}
+
+.input-label, .input-author, .input-from, .input-juji {
+  margin: 30rpx 0;
+  display: flex;
+  align-items: center;
+}
+.input-label {
+  align-items: flex-start;
+}
+
+.input-label .label-panel {
+  width: 560rpx;
+  display: flex;
+  font-size: 24rpx;
+  overflow-x: scroll;
+}
+.label-panel view{
+  flex-shrink: 0;
+  margin-right: 12rpx;
+  padding: 6rpx 12rpx;
+  border: 1px solid #eee;
+  background-color: #f6f6f6;
+  color: #7e7d7d;
+}
+
+.form label{
+  margin: 0 12rpx;
+  min-width: 60rpx;
+}
+.form input{
+  flex-grow: 1;
+  color: #7e7d7d;
+}
+.form picker{
+  color: #7e7d7d;
+}
+.input-btn{
+  margin-top: 40rpx;
+  font-size: 30rpx;
+  background-color: #ff8b40;
+  color: white;
+}
+.input-jujiname{
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
+}

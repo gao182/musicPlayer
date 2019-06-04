@@ -1,0 +1,54 @@
+<!--miniprogram/pages/indexs/index.wxml-->
+<import src="../template/template.wxml" />
+<view class="container">
+  <!-- 搜索框 隐藏 -->
+  <view class="search" wx:if="{{isSearch}}">
+    <icon type="clear" size="16" bindtap="closeSearch"></icon>
+    <input placeholder="请输入..." placeholder-class="placeholder"></input>
+    <text class="iconfont icon-search" bindtap="search"></text>
+  </view>
+
+  <!-- 顶部分类导航 -->
+  <view class="category">
+    <text class="iconfont icon-search" bindtap="showSearch"></text>
+    <text class="category-attention {{whoshow === 1 ? 'active':''}}" bindtap="showAttention">关注</text>
+    <text class="category-hot {{whoshow === 2 ? 'active':''}}" bindtap="showHot">推荐</text>
+    <text class="category-new {{whoshow === 3 ? 'active':''}}" bindtap="showNew">最新</text>
+  </view>
+
+  <!-- 展示推荐列表 -->
+  <view class="hotInfo" wx:if="{{whoshow === 2}}">
+    <view class="list-item">
+      <template is="upUser" data=""/>
+      <template is="juziShow" data=""/>
+      <template is="sociality" data=""/>
+    </view>
+    <view class="list-item">
+      <template is="upUser" data=""/>
+      <template is="juziShow" data=""/>
+      <template is="sociality" data=""/>
+    </view>
+  </view>
+
+  <!-- 展示最新列表 -->
+  <view class="newInfo" wx:elif="{{whoshow === 3}}">
+    <view class="list-item">
+      <template is="upUser" data=""/>
+      <template is="juziShow" data=""/>
+      <template is="sociality" data=""/>
+    </view>
+  </view>
+
+  <!-- 展示关注列表 -->
+  <view class="attentionInfo" wx:elif="{{whoshow === 1}}">
+    <view class="noAttention" wx:if="{{true}}">
+      <view class="iconfont icon-author"></view>
+      你还没用关注任何人
+    </view>
+    <view class="list-item" wx:else>
+      <template is="upUser" data=""/>
+      <template is="juziShow" data=""/>
+      <template is="sociality" data=""/>
+    </view>
+  </view>
+</view>

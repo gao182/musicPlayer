@@ -1,0 +1,43 @@
+/**app.wxss**/
+@import "style/icon.wxss";
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  color: #140e0e;
+  font-size: 30rpx;
+  letter-spacing: .1em;
+} 
+button {
+  background: initial;
+}
+
+button:focus{
+  outline: 0;
+}
+
+button::after{
+  border: none;
+}
+
+/*头部分类标签*/
+.category {
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.category > text {
+  display: inline-block;
+  padding: 10rpx 0;
+  margin: 8rpx 40rpx;
+}
+.category > text.active {
+  border-bottom: 2px solid #ff8b40;
+}
+
+/*文本框提示信息*/
+.placeholder {
+  font-size: 24rpx;
+  color: #bbb;
+}

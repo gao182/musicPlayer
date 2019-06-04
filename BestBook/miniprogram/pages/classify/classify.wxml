@@ -1,0 +1,32 @@
+<!--miniprogram/pages/classify/classify.wxml-->
+<import src="../template/template.wxml" />
+<view class="container">
+  <view class="tab-classify">
+    <template is="classify-title" data="" />
+    <view class="content">
+      <template  is="tab-list" data="" />
+      <template  is="tab-list" data="" />
+      <template  is="tab-list" data="" />
+      <template  is="tab-list" data="" />
+      <template  is="tab-list" data="" />
+      <template  is="tab-list" data="" />
+      <template  is="tab-list" data="" />
+      <template  is="tab-list" data="" />
+      <template  is="tab-list" data="" />
+    </view>
+  </view>
+  <view class="book-classify">
+    <template is="classify-title" data="" />
+    <view class="content">
+      <template  is="book-list" data="" />
+      <!-- <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" /> -->
+    </view>
+  </view>
+</view>

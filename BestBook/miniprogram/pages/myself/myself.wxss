@@ -1,0 +1,87 @@
+/* miniprogram/pages/myself/myself.wxss */
+page {
+  background: #f4f4f6;
+}
+.userinfo {
+  width: 100%;
+  height: 300rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.userinfo-avatar {
+  width: 130rpx;
+  height: 130rpx;
+  margin-top: 30rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: white;
+}
+.userinfo-name{
+  margin: 10rpx 0;
+  font-weight: bold;
+}
+
+.sociality{
+  width: 100%;
+  padding-top: 20rpx;
+  padding-bottom: 40rpx;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+.sociality > view{
+  width: 33.33%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #f0f0f0;
+}
+.sociality > .last{
+  border: none;
+}
+.sociality .number{
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.name{
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  color: #acacac;
+}
+
+.content{
+  width: 100%;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: white;
+  box-sizing: border-box;
+}
+.content > view[class^="my"]{
+  margin-left: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .text{
+  flex: 1;
+  padding: 30rpx 0;
+  padding-left: 30rpx;
+}
+
+.add-btn{
+  position: fixed;
+  right: 50rpx;
+  bottom: 50rpx;
+}
+.add-btn .iconfont{
+  color: #140e0e;
+  font-size: 80rpx;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .2)
+}
+

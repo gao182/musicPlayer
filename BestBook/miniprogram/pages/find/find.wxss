@@ -1,0 +1,66 @@
+/* miniprogram/pages/find/find.wxss */
+@import "../template/template.wxss";
+.panel{
+  padding: 40rpx;
+  padding-top: 48rpx;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.panel .author-time{
+  margin-bottom: 52rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.juzi-author{
+  font-size: 50rpx;
+}
+.today-time{
+  min-width: 100rpx;
+  background-size: contain;
+  background-position: center;
+}
+.today-time .month{
+  text-align: left;
+}
+.today-time .day{
+  margin-top: -12rpx;
+  text-align: right;
+}
+.panel .juzi-box{
+  box-shadow: 0 4px 16px rgba(191, 200, 201, 0.3)
+}
+.juzi-box .juzi-img{
+  height: 440rpx;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.juzi-box .juzi-text{
+  font-size: 34rpx;
+  padding: 40rpx 30rpx;
+}
+.juzi-box .juzi-from{
+  padding: 30rpx;
+  padding-bottom: 60rpx;
+  color: #7e7d7d;
+  font-size: 28rpx;
+}
+
+/*用戶*/
+.upUser{
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.upUser .attention{
+  font-size: 24rpx;
+  padding: 4rpx 8rpx;
+}
+.upUser .socialityInfo{
+  margin-left: 40rpx;
+}

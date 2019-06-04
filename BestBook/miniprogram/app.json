@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/classify/classify",
+    "pages/index/index",
+    "pages/find/find",
+    "pages/myself/myself",
+    "pages/addJu/addJu",
+    "pages/template/template"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "美句集",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home1.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/find1.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "iconPath": "images/class.png",
+        "selectedIconPath": "images/class1.png"
+      },
+      {
+        "pagePath": "pages/myself/myself",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

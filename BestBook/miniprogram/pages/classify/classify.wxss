@@ -1,0 +1,19 @@
+/* miniprogram/pages/classify/classify.wxss */
+@import "../template/template.wxss";
+
+.tab-classify, .book-classify {
+  width: 100%;
+  padding: 32rpx;
+  box-sizing: border-box;
+}
+
+.tab-classify .content {
+  margin-top: 20rpx;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.tab-classify .content > .tab-list {
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}

@@ -1,0 +1,25 @@
+<!--miniprogram/pages/find/find.wxml-->
+<import src="../template/template.wxml" />
+<view class="container">
+  <view class="panel">
+    <view class="author-time">
+      <view class="juzi-author">唐温如</view>
+      <view class="today-time" style="background-image: url(../../images/line.jpg)">
+        <view class="month">12</view>
+        <view class="day">24</view>
+      </view>
+    </view>
+    <view class="juzi-box">
+      <view class="juzi-img" style="background-image: url(../../images/cesi.jpg)"></view>
+      <view class="juzi-text">
+        <view>西风吹老洞庭波，一夜湘君白发多。</view>
+        <view>醉后不知天在水，满船清梦压星河。</view>
+      </view>
+      <view class="juzi-from">《题龙阳县青草湖》</view>
+    </view>
+  </view>
+  <view class="upUser">
+    <template is="upUser" data="" />
+    <template is="sociality" data="" />
+  </view>
+</view>
