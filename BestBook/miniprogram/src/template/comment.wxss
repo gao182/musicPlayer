@@ -1,0 +1,38 @@
+.label-list {
+  padding: 0 12rpx;
+  line-height: 34rpx;
+  border: 1px solid #14b0ff;
+  color: #14b0ff;
+  border-radius: 20rpx;
+}
+
+.comment-list {
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  border-top: 1px solid #f8f8f8;
+}
+
+.comment-list .comment-user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.comment-user .user-box {
+  flex-grow: 1;
+  margin-left: 20rpx;
+}
+
+.comment-user .time {
+  font-size: 24rpx;
+  color: #7e7d7d;
+}
+
+.comment-user .love {
+  color: #7e7d7d;
+}
+
+.comment-text {
+  margin-top: 20rpx;
+  margin-left: 80rpx;
+}

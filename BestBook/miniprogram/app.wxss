@@ -1,5 +1,5 @@
 /**app.wxss**/
-@import "style/icon.wxss";
+@import "src/icon.wxss";
 .container {
   display: flex;
   flex-direction: column;
@@ -10,6 +10,8 @@
   letter-spacing: .1em;
 } 
 button {
+  font-size: 30rpx;
+  line-height: 2;
   background: initial;
 }
 
@@ -25,7 +27,7 @@ button::after{
 .category {
   width: 100%;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 .category > text {
   display: inline-block;
@@ -40,4 +42,16 @@ button::after{
 .placeholder {
   font-size: 24rpx;
   color: #bbb;
+}
+
+/*无数据提示信息*/
+.noAttention{
+  text-align: center;
+  margin-top: 180rpx;
+  font-size: 32rpx;
+  color: #aaa;
+}
+.noAttention .iconfont{
+  font-size: 120rpx;
+  color: #aaa;
 }

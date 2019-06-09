@@ -1,0 +1,30 @@
+<!--miniprogram/pages/commentJuzi/commentJuzi.wxml-->
+<import src="../../src/template/juzi-list.wxml" />
+<import src="../../src/template/comment.wxml" />
+<view class="container">
+  <!-- 展示当前句子 -->
+  <view class="juzi-list">
+    <template is="upUser" data="{{...currentjuzi}}" />
+    <template is="juziShow" data="{{...currentjuzi}}" />
+    <template is="sociality" data="" />
+  </view>
+  <view class="label">
+    <template is="label" data="" />
+    <template is="label" data="" />
+  </view>
+  <view class="hot-comment">
+    <view class="title">热门评论</view>
+    <template is="comment-list" data="" />
+    <template is="comment-list" data="" />
+  </view>
+  <view class="all-comment">
+    <view class="title">全部评论</view>
+    <template is="comment-list" data="" />
+    <template is="comment-list" data="" />
+  </view>
+  
+  <!-- 评价句子 -->
+  <view class="comment-input">
+    <input placeholder="分享一下感想吧" placeholder-class='placeholder'></input>
+  </view>
+</view>

@@ -1,4 +1,5 @@
 /* miniprogram/pages/myself/myself.wxss */
+@import "../../src/template/sociality-count.wxss";
 page {
   background: #f4f4f6;
 }
@@ -24,33 +25,8 @@ page {
   font-weight: bold;
 }
 
-.sociality{
+.sociality-count{
   width: 100%;
-  padding-top: 20rpx;
-  padding-bottom: 40rpx;
-  display: flex;
-  align-items: center;
-  background-color: white;
-}
-.sociality > view{
-  width: 33.33%;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  border-right: 1px solid #f0f0f0;
-}
-.sociality > .last{
-  border: none;
-}
-.sociality .number{
-  font-size: 38rpx;
-  font-weight: bold;
-}
-.name{
-  margin-top: 10rpx;
-  font-size: 30rpx;
-  color: #acacac;
 }
 
 .content{
@@ -60,7 +36,7 @@ page {
   background-color: white;
   box-sizing: border-box;
 }
-.content > view[class^="my"]{
+.content view[class^="my-"]{
   margin-left: 40rpx;
   display: flex;
   justify-content: center;
@@ -84,4 +60,3 @@ page {
   border-radius: 50%;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .2)
 }
-

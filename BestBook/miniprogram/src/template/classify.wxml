@@ -1,0 +1,41 @@
+<!--miniprogram/pages/template/template.wxml-->
+<!-- 分类标题 -->
+<template name="classify-title">
+  <view class="classsify-title">
+    <text class="title-text">标签分类</text>
+    <text class="title-more">》</text>
+  </view>
+</template>
+
+<!-- 标签分类内容 -->
+<template name="tab-list">
+  <view class="tab-list">
+    优美
+    <view class="img" style="background-image: url(../../images/cesi.jpg)"></view>
+  </view>
+</template>
+
+<!-- 古诗书籍分类内容 -->
+<template name="book-list">
+  <view class="book-list">
+    <view class="img" style="background-image: url(../../images/cesi.jpg)"></view>
+    <view class="book-info">
+      <view class="book-name">《绿皮书》</view>
+      <view class="book-intro">《绿皮书》是由彼得·法拉利执导，维果·莫特森、马赫沙拉·阿里主演的剧情片 。 该片改编自真人真事，讲述了意裔美国人保镖托尼，他被聘用为世界上优秀的爵士钢琴家唐开车。</view>
+      <view class="book-count">共收录12个句子</view>
+    </view>
+  </view>
+</template>
+
+<!-- 名人分类内容 -->
+<template name="person-list">
+  <view class="person-list">
+    <view class="img" style="background-image: url(../../images/cesi.jpg)"></view>
+    <view class="person-info">
+      <view class="person-intro">
+        <text class="person-name">三毛</text> （1943年3月26日－1991年1月4日），原名陈懋（mào）平（后改名为陈平），中国当代著名作家，1943年出生于重庆，1948年，随父母迁居台湾。
+      </view>
+      <view class="person-count">共收录12个句子</view>
+    </view>
+  </view>
+</template>

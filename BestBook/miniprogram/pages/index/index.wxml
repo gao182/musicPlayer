@@ -1,5 +1,5 @@
 <!--miniprogram/pages/indexs/index.wxml-->
-<import src="../template/template.wxml" />
+<import src="../../src/template/juzi-list.wxml" />
 <view class="container">
   <!-- 搜索框 隐藏 -->
   <view class="search" wx:if="{{isSearch}}">
@@ -18,25 +18,32 @@
 
   <!-- 展示推荐列表 -->
   <view class="hotInfo" wx:if="{{whoshow === 2}}">
-    <view class="list-item">
-      <template is="upUser" data=""/>
-      <template is="juziShow" data=""/>
-      <template is="sociality" data=""/>
-    </view>
-    <view class="list-item">
-      <template is="upUser" data=""/>
-      <template is="juziShow" data=""/>
-      <template is="sociality" data=""/>
-    </view>
+    <block wx:for="{{hotjuzi}}" wx:key="index">
+      <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
+        <view class="list-item">
+          <navigator url="../others/others?uid={{item._openid}}" open-type="navigate">
+            <template is="upUser" data="{{...item}}" />
+          </navigator>
+          <template is="juziShow" data="{{...item}}" />
+          <template is="sociality" data="" />
+        </view>
+      </navigator>
+    </block>
   </view>
 
   <!-- 展示最新列表 -->
   <view class="newInfo" wx:elif="{{whoshow === 3}}">
-    <view class="list-item">
-      <template is="upUser" data=""/>
-      <template is="juziShow" data=""/>
-      <template is="sociality" data=""/>
-    </view>
+    <block wx:for="{{newjuzi}}" wx:key="index">
+      <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
+        <view class="list-item">
+          <navigator url="../others/others?uid={{item._openid}}" open-type="navigate">
+            <template is="upUser" data="{{...item}}" />
+          </navigator>
+          <template is="juziShow" data="{{...item}}" />
+          <template is="sociality" data="" />
+        </view>
+      </navigator>
+    </block>
   </view>
 
   <!-- 展示关注列表 -->
@@ -46,9 +53,9 @@
       你还没用关注任何人
     </view>
     <view class="list-item" wx:else>
-      <template is="upUser" data=""/>
-      <template is="juziShow" data=""/>
-      <template is="sociality" data=""/>
+      <template is="upUser" data="" />
+      <template is="juziShow" data="" />
+      <template is="sociality" data="" />
     </view>
   </view>
 </view>

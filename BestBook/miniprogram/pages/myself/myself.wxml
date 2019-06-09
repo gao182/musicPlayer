@@ -1,35 +1,28 @@
 <!--miniprogram/pages/myself/myself.wxml-->
+<import src="../../src/template/sociality-count.wxml" />
 <view class="container">
   <!-- 用户 -->
   <view class="userinfo">
     <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" style="background-image: url({{userInfo.avatarUrl}})"></button>
-    <text class="userinfo-name">{{userInfo.name}}</text>
+    <text class="userinfo-name">{{userInfo.nickName}}</text>
   </view>
   <!-- 用户社交 -->
-  <view class="sociality">
-    <view class="popularity">
-      <text class="number popularity">{{sociality.popularity}}</text>
-      <text class="name popularity">人气</text>
-    </view>
-    <view class="attention">
-      <text class="number attention">{{sociality.attention}}</text>
-      <text class="name attention">关注</text>
-    </view>
-    <view class="fan last">
-      <text class="number fan">{{sociality.fan}}</text>
-      <text class="name fan">粉丝</text>
-    </view>
-  </view>
+  <template is="sociality-count" data="{{...sociality}}" />
+
   <!-- 用户句子 -->
   <view class="content">
-    <view class="my-juzi">
-      <text class="iconfont icon-text"></text>
-      <text class="text">我的句子</text>
-    </view>
-    <view class="my-juji">
-      <text class="iconfont icon-juji"></text>
-      <text class="text">我的句集</text>
-    </view>
+    <navigator url="../myJuzi/myJuzi" open-type="navigate">
+      <view class="my-juzi">
+        <text class="iconfont icon-text"></text>
+        <text class="text">我的句子</text>
+      </view>
+    </navigator>
+    <navigator url="../myJuji/myJuji" open-type="navigate">
+      <view class="my-juji">
+        <text class="iconfont icon-juji"></text>
+        <text class="text">我的句集</text>
+      </view>
+    </navigator>
     <view class="my-comment">
       <text class="iconfont icon-comment"></text>
       <text class="text">我的评论</text>

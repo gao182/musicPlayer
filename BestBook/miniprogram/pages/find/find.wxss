@@ -1,5 +1,5 @@
 /* miniprogram/pages/find/find.wxss */
-@import "../template/template.wxss";
+@import "../../src/template/juzi-list.wxss";
 .panel{
   padding: 40rpx;
   padding-top: 48rpx;
@@ -57,10 +57,22 @@
   justify-content: space-between;
   align-items: center;
 }
-.upUser .attention{
-  font-size: 24rpx;
+.userPhoto{
+  width: 48rpx;
+  height: 48rpx;
+}
+.whoUp .userName {
+  font-size: 26rpx;
+}
+.whoUp .attention {
   padding: 4rpx 8rpx;
+  font-size: 22rpx;
+  line-height: 32rpx;
+}
+.upUser .whoUp{
+  flex-grow: 1;
 }
 .upUser .socialityInfo{
-  margin-left: 40rpx;
+  flex-grow: 1;
+  margin-left: 30rpx;
 }

@@ -1,5 +1,5 @@
 <!--miniprogram/pages/classify/classify.wxml-->
-<import src="../template/template.wxml" />
+<import src="../../src/template/classify.wxml" />
 <view class="container">
   <view class="tab-classify">
     <template is="classify-title" data="" />
@@ -19,14 +19,42 @@
     <template is="classify-title" data="" />
     <view class="content">
       <template  is="book-list" data="" />
-      <!-- <template  is="book-list" data="" />
       <template  is="book-list" data="" />
       <template  is="book-list" data="" />
       <template  is="book-list" data="" />
       <template  is="book-list" data="" />
       <template  is="book-list" data="" />
       <template  is="book-list" data="" />
-      <template  is="book-list" data="" /> -->
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+    </view>
+  </view>
+  <view class="movie-classify">
+    <template is="classify-title" data="" />
+    <view class="content">
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+      <template  is="book-list" data="" />
+    </view>
+  </view>
+  <view class="person-classify">
+    <template is="classify-title" data="" />
+    <view class="content">
+      <template  is="person-list" data="" />
+      <template  is="person-list" data="" />
+      <template  is="person-list" data="" />
+      <template  is="person-list" data="" />
+      <template  is="person-list" data="" />
+      <template  is="person-list" data="" />
+      <template  is="person-list" data="" />
+      <template  is="person-list" data="" />
+      <template  is="person-list" data="" />
     </view>
   </view>
 </view>

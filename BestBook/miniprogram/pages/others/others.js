@@ -1,36 +1,43 @@
-// miniprogram/pages/indexs/index.js
-import { showsucc, showerr, getJuzi, getuser, getImginfo } from "../../src/database"
+// miniprogram/pages/others/others.js
+import { showerr, getuser, getuserJuzi, getImginfo } from "../../src/database"
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    whoshow: 2,
-    isSearch: false,
-    hotjuzi: {},
-    newjuzi: {},
-    attjuzi: {}
+    isShowjuzi: true,
+    userInfo: {
+      popularity: 0,
+      attention: 0,
+      fan: 0
+    },
+    userjuzi: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    /*查询最热句子*/
-    this.getJuzi('asc')
+    getuser(options.uid).then(res => {
+      this.setData({ userInfo: res.data[0] })
+    }).catch(() => showerr('查询失败'))
+    this.getuserAll(options.uid)
   },
 
-  /*查询最热句子*/
-  getJuzi(str) {
-    //查询最热句子
+  //查询用户句子
+  getuserAll(uid){
     wx.showLoading({
       title: '加载中',
     })
-    getJuzi(str).then(res => {
+    getuserJuzi(uid).then(res => {
       wx.hideLoading()
       let data = res.data
       getImginfo(res.data).then(res => {
         let hotimg = res.fileList
         hotimg.forEach(e1 => {
           data.forEach(e2 => {
-            if (e2.imgUrl === e1.fileID){
+            if (e2.imgUrl === e1.fileID) {
               e2.imgUrl = e1.tempFileURL
               return
             }
@@ -40,30 +47,22 @@ Page({
           let t = new Date(e.time)
           e.time = t.toLocaleDateString() + ' ' + t.toLocaleTimeString()
         })
-        if(this.data.whoshow === 1)
-          this.setData({ attjuzi: data })
-        if (this.data.whoshow === 2)
-          this.setData({ hotjuzi: data })
-        if (this.data.whoshow === 3)
-          this.setData({ newjuzi: data })
+        this.setData({userjuzi: data})
       })
-    }).catch(err => {
-      wx.hideLoading()
-      showerr('查询记录失败')
-      this.getJuzi()
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+
   },
 
   /**
@@ -100,42 +99,16 @@ Page({
   onShareAppMessage: function() {
 
   },
-
-  /*显示关注页面*/
-  showAttention() {
+  /*显示句子表单*/
+  showJuzi() {
     this.setData({
-      whoshow: 1
+      isShowjuzi: true
     })
   },
-
-  /*显示推荐页面*/
-  showHot() {
+  /*显示句集表单*/
+  showJuji() {
     this.setData({
-      whoshow: 2
-    })
-  },
-
-  /*显示最新页面*/
-  showNew() {
-    this.setData({
-      whoshow: 3
-    })
-
-    //加载数据
-    this.getJuzi('desc')
-  },
-
-  /*显示搜索框*/
-  showSearch() {
-    this.setData({
-      isSearch: true
-    })
-  },
-
-  /*关闭搜索框*/
-  closeSearch() {
-    this.setData({
-      isSearch: false
+      isShowjuzi: false
     })
   }
 })

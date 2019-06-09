@@ -1,0 +1,50 @@
+
+<!-- 发布句子用户头像姓名 -->
+<template name="upUser">
+  <view class="whoUp">
+    <view class="userPhoto" style="background-image:url({{avatarUrl}})"></view>
+    <view class="userName">{{nickName}}</view>
+    <button class="attention">+关注</button>
+  </view>
+</template>
+
+<template name="user-photo">
+  <view class="whoUp">
+    <view class="userPhoto" style="background-image:url({{avatarUrl}})"></view>
+    <view class="userName nobtn">{{nickName}}</view>
+  </view>
+</template>
+
+<!-- 句子内容 -->
+<template name="juziShow">
+  <view class="juziInfo">
+    <view class="juzi-text">
+      {{text}}
+    </view>
+    <view class="juzi-img" wx:if="{{imgUrl}}" style="background-image: url({{imgUrl}})"></view>
+    <view class="from-author">
+      <text wx:if="{{author}}">— </text>
+      <text class="author">{{author}}</text>
+      <text class="from">{{from}}</text>
+    </view>
+    <view class="juzi-time" wx:if="{{time}}">{{time}}收录</view>
+  </view>
+</template>
+
+<!-- 句子点赞评论收藏 -->
+<template name="sociality">
+  <view class="socialityInfo">
+    <view class="love">
+      <text class="iconfont icon-love"></text>
+      <text>0</text>
+    </view>
+    <view class="comment">
+      <text class="iconfont icon-comment1"></text>
+      <text>0</text>
+    </view>
+    <view class="collect">
+      <text class="iconfont icon-collect1"></text>
+      <text>0</text>
+    </view>
+  </view>
+</template>

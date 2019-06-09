@@ -1,0 +1,24 @@
+<!-- 小标签内容 -->
+<template name="label">
+  <view class="label-list">古诗</view>
+</template>
+
+<!-- 评论人 评论内容 -->
+<template name="comment-list">
+  <view class="comment-list">
+    <view class="comment-user">
+      <view class="userPhoto" style="background-image:url(https://wx.qlogo.cn/mmopen/vi_32/SquEPlKnudyQFFgnoH0TIN9pib45Rmg9Dp1I8Y7AsiaxxZleQloT83GcgFDZlJRtEEmNR5bVGic1ORibiasicTatgtQA/132)"></view>
+      <view class="user-box">
+        <view class="userName">無涯</view>
+        <view class="time">2019-5-22 08:44</view>
+      </view>
+      <view class="love">
+        <text class="iconfont icon-love"></text>
+        <text>0</text>
+      </view>
+    </view>
+    <view class="comment-text">
+      做为著名作家和学者闻名于世界文坛，村上的小说沿袭了日本文化与传统美学，村上春树的作品反映了多年来日本迅速发展的
+    </view>
+  </view>
+</template>

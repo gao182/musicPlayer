@@ -1,0 +1,87 @@
+/* miniprogram/pages/template/template.wxss */
+
+.classsify-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.classsify-title .title-text {
+  font-size: 38rpx;
+}
+
+.classsify-title .title-more {
+  font-size: 32rpx;
+}
+
+.tab-list {
+  position: relative;
+  z-index: 0;
+  width: 132rpx;
+  height: 132rpx;
+  line-height: 132rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  color: white;
+  background-color: #000;
+}
+
+.tab-list .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 132rpx;
+  height: 132rpx;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8rpx;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.book-list, .person-list {
+  display: flex;
+}
+
+.book-list .img, .person-list .img {
+  flex-shrink: 0;
+  width: 132rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  background-size: cover;
+  background-position: center;
+}
+
+.book-list .book-info, .person-list .person-info {
+  margin-left: 20rpx;
+}
+
+.book-info .book-name, .person-info .person-name {
+  font-weight: bold;
+  color: #140e0e;
+}
+
+.book-info .book-intro, .person-info .person-intro {
+  margin: 30rpx 0;
+  font-size: 26rpx;
+  color: #7e7d7d;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden; /** 隐藏超出的内容 **/
+}
+
+.book-info .book-count, .person-info .person-count {
+  color: #14b0ff;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.person-list .img {
+  height: 142rpx;
+}
+
+.person-info .person-intro {
+  margin-top: 0;
+}

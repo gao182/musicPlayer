@@ -1,0 +1,17 @@
+<!-- 个人主页数据 -->
+<template name="sociality-count">
+  <view class="sociality-count">
+    <view class="popularity">
+      <text class="number popularity">{{popularity}}</text>
+      <text class="dataname popularity">人气</text>
+    </view>
+    <view class="attention">
+      <text class="number attention">{{attention}}</text>
+      <text class="dataname attention">关注</text>
+    </view>
+    <view class="fan last">
+      <text class="number fan">{{fan}}</text>
+      <text class="dataname fan">粉丝</text>
+    </view>
+  </view>
+</template>

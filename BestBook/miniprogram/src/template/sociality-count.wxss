@@ -1,0 +1,34 @@
+/* 个人主页数据 */
+
+.sociality-count {
+  width: 100%;
+  padding-top: 20rpx;
+  padding-bottom: 40rpx;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.sociality-count > view {
+  width: 33.33%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #f0f0f0;
+}
+
+.sociality-count > .last {
+  border: none;
+}
+
+.sociality-count .number {
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.sociality-count .dataname {
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  color: #acacac;
+}

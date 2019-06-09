@@ -1,0 +1,61 @@
+<!--miniprogram/pages/others/others.wxml-->
+<import src="../../src/template/sociality-count.wxml" />
+<import src="../../src/template/juzi-list.wxml" />
+<import src="../../src/template/classify.wxml" />
+<view class="container">
+  <!-- 用户 -->
+  <view class="userinfo">
+    <view class="userinfo-avatar" style="background-image: url({{userInfo.avatarUrl}})"></view>
+    <text class="userinfo-name">{{userInfo.name}}</text>
+  </view>
+  <!-- 关注私信 -->
+  <view class="control">
+    <button class="contact">私信</button>
+    <button class="attention">关注</button>
+  </view>
+  <!-- 用户社交 -->
+  <template is="sociality-count" data="{{...userInfo}}" />
+
+  <view class="category">
+    <text class="category-juzi {{isShowjuzi? 'active':''}}" bindtap="showJuzi">句子</text>
+    <text class="category-juji {{isShowjuzi? '':'active'}}" bindtap="showJuji">句集</text>
+  </view>
+
+  <!-- 展示句子列表 -->
+  <view class="juzi-panel" wx:if="{{isShowjuzi}}">
+    <view class="noAttention" wx:if="{{userjuzi.length < 1}}">
+      <view class="iconfont icon-text"></view>
+      你还没用发布任何信息
+    </view>
+    <view wx:else>
+      <block wx:for="{{userjuzi}}" wx:key="index">
+        <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
+          <view class="list-item">
+            <template is="user-photo" data="{{...item}}" />
+            <template is="juziShow" data="{{...item}}" />
+            <template is="sociality" data="" />
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+
+  <!-- 展示句集 -->
+  <view class="juzi-panel" wx:else>
+    <view class="noAttention" wx:if="{{false}}">
+      <view class="iconfont icon-book"></view>
+      你还没用发布任何信息
+    </view>
+    <view wx:else>
+      <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
+        <template is="book-list" data="" />
+      </navigator>
+      <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
+        <template is="book-list" data="" />
+      </navigator>
+      <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
+        <template is="book-list" data="" />
+      </navigator>
+    </view>
+  </view>
+</view>

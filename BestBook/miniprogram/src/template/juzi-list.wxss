@@ -1,0 +1,75 @@
+.whoUp, .socialityInfo {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.userPhoto {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #f8f8f8;
+}
+
+.whoUp .userName {
+  margin-left: 12rpx;
+  flex-grow: 1;
+  font-size: 34rpx;
+  color: #7e7d7d;
+}
+.whoUp .userName.nobtn{
+  flex-grow: 0;
+}
+.whoUp .attention {
+  margin: 0;
+  padding: 8rpx 12rpx;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #ff8b40;
+  border: 1px solid #ff8b40;
+  border-radius: 2px;
+}
+
+.juziInfo {
+  width: 100%;
+  padding-top: 28rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 1px solid #f8f8f8;
+  font-size: 34rpx;
+}
+
+.juziInfo > view {
+  margin-bottom: 16rpx;
+}
+
+.juziInfo  .juzi-img {
+  height: 340rpx;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20rpx;
+  background-color: #f1f1f1;
+}
+
+.from-author, .juzi-time {
+  min-height: 30rpx;
+  font-size: 28rpx;
+  color: #7e7d7d;
+}
+
+.juzi-time {
+  text-align: right;
+}
+
+.socialityInfo {
+  justify-content: space-between;
+  color: #7e7d7d;
+}
+
+.socialityInfo .iconfont {
+  display: inline-block;
+  padding-top: 16rpx;
+}

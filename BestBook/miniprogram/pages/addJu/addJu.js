@@ -1,5 +1,5 @@
 // miniprogram/pages/addJu/addJu.js
-import {addData} from "../../database/database"
+import {addData} from "../../src/database"
 const app = getApp()
 Page({
 
@@ -92,8 +92,7 @@ Page({
 
   },
   /*显示句子表单*/
-  showJuzi(e) {
-    console.log(e)
+  showJuzi() {
     this.setData({
       isShowjuzi: true
     })
@@ -149,7 +148,6 @@ Page({
       count: 1,
       sizeType: "compressed",
       success: (res) => {
-        console.log(res)
         const filePath = res.tempFilePaths[0]
         if (this.data.isShowjuzi) {
           this.data.addjuzi.imgUrl = filePath
@@ -192,8 +190,10 @@ Page({
   /*发布句子*/
   publishJuzi() {
     let addjuzi = this.data.addjuzi
+    console.log(addjuzi.from.match('《'))
+    addjuzi.from = addjuzi.from.match('《') !== null ? addjuzi.from : "《" + addjuzi.from
+    addjuzi.from = addjuzi.from.match('》') !== null ? addjuzi.from : addjuzi.from + "》"
     if (addjuzi.text.length > 2 && addjuzi.author && addjuzi.label && addjuzi.from) {
-      const db = wx.cloud.database()
       wx.showLoading({
         title: '上传中',
       })
@@ -223,8 +223,9 @@ Page({
   /*发布句集*/
   publishJuji() {
     let addjuji = this.data.addjuji
+    addjuji.jujiName = addjuji.jujiName.match('《') !== null ? addjuji.jujiName : "《" + addjuzi.jujiName
+    addjuji.jujiName = addjuji.jujiName.match('》') !== null ? addjuji.jujiName : addjuzi.jujiName + "》"
     if (addjuji.jujiName) {
-      const db = wx.cloud.database()
       wx.showLoading({
         title: '上传中',
       })

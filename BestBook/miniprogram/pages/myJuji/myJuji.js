@@ -1,11 +1,11 @@
-// miniprogram/pages/template/template.js
+// miniprogram/pages/myJuji/myJuji.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isNew: true
   },
 
   /**
@@ -62,5 +62,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /*显示最新*/
+  showNew() {
+    this.setData({
+      isNew: true
+    })
+  },
+
+  /*显示最热*/
+  showHot() {
+    this.setData({
+      isNew: false
+    })
   }
 })

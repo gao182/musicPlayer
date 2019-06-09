@@ -57,9 +57,9 @@ textarea {
 }
 .input-btn{
   margin-top: 40rpx;
-  font-size: 30rpx;
   background-color: #ff8b40;
   color: white;
+  border-radius: 36rpx;
 }
 .input-jujiname{
   margin-bottom: 20rpx;
