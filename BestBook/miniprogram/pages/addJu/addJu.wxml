@@ -19,9 +19,9 @@
       <view class="box">
         <input disabled="true" value="{{addjuzi.label}}" placeholder="必选项，最多选3个" placeholder-class="placeholder"></input>
         <view class="label-panel">
-          <view wx:for="{{label}}" wx:key="label" data-value="{{item}}"
+          <view wx:for="{{label}}" wx:key="label" data-value="{{item.name}}"
             bindtap="selectLabel">
-            {{item}}
+            {{item.name}}
           </view>
         </view>
       </view>

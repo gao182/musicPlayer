@@ -1,5 +1,7 @@
 // miniprogram/pages/others/others.js
 import { showerr, getuser, getuserJuzi, getImginfo } from "../../src/database"
+
+const app = getApp()
 Page({
 
   /**
@@ -19,18 +21,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    getuser(options.uid).then(res => {
-      this.setData({ userInfo: res.data[0] })
-    }).catch(() => showerr('查询失败'))
-    this.getuserAll(options.uid)
+    if (options.uid === app.globalData.openid) {
+      wx.switchTab({
+        url: '../myself/myself'
+      })
+    }else{
+      getuser(options.uid).then(res => {
+        this.setData({ userInfo: res.data[0] })
+      }).catch(() => showerr('查询失败'))
+      this.getuserAll(options.uid,"desc")
+    }
   },
 
   //查询用户句子
-  getuserAll(uid){
+  getuserAll(uid,str){
     wx.showLoading({
       title: '加载中',
     })
-    getuserJuzi(uid).then(res => {
+    getuserJuzi(uid,str).then(res => {
       wx.hideLoading()
       let data = res.data
       getImginfo(res.data).then(res => {

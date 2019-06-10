@@ -17,9 +17,9 @@ Page({
     this.getJuzi('asc')
   },
 
-  /*查询最热句子*/
+  /*查询句子*/
   getJuzi(str) {
-    //查询最热句子
+    //查询句子
     wx.showLoading({
       title: '加载中',
     })
@@ -42,9 +42,9 @@ Page({
         })
         if(this.data.whoshow === 1)
           this.setData({ attjuzi: data })
-        if (this.data.whoshow === 2)
+        else if (this.data.whoshow === 2)
           this.setData({ hotjuzi: data })
-        if (this.data.whoshow === 3)
+        else if (this.data.whoshow === 3)
           this.setData({ newjuzi: data })
       })
     }).catch(err => {
@@ -137,5 +137,10 @@ Page({
     this.setData({
       isSearch: false
     })
+  },
+
+  /*关注*/
+  attention(e){
+    console.log(e.target.dataset.openid)
   }
 })

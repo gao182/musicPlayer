@@ -1,7 +1,7 @@
 /* miniprogram/pages/classify/classify.wxss */
 @import "../../src/template/classify.wxss";
 
-.tab-classify, .book-classify, .movie-classify, .person-classify  {
+.tab-classify, .book-classify, .author-classify  {
   width: 100%;
   padding: 32rpx;
   box-sizing: border-box;
@@ -13,13 +13,12 @@
   overflow-x: scroll;
 }
 
-.tab-list, .book-list, .person-list {
+.tab-list, .book-list, .author-list {
   margin-right: 24rpx;
   flex-shrink: 0;
 }
 
-.book-classify .content, .movie-classify .content, .person-classify .content,
-.person-classify .content {
+.book-classify .content, .author-classify .content {
   margin-top: 20rpx;
   height: 420rpx;
   display: flex;
@@ -28,10 +27,10 @@
   overflow-x: scroll;
 }
 
-.book-info, .person-info {
+.book-info, .author-info {
   max-width: 300rpx;
 }
 
-.person-classify .content{
-  height: 304rpx;
+.author-classify .content{
+  height: 318rpx;
 }

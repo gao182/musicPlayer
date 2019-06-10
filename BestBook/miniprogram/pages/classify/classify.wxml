@@ -1,60 +1,33 @@
 <!--miniprogram/pages/classify/classify.wxml-->
 <import src="../../src/template/classify.wxml" />
 <view class="container">
+  <!-- 标签分类 -->
   <view class="tab-classify">
-    <template is="classify-title" data="" />
+    <template is="classify-title" data="{{name: '标签分类'}}" />
     <view class="content">
-      <template  is="tab-list" data="" />
-      <template  is="tab-list" data="" />
-      <template  is="tab-list" data="" />
-      <template  is="tab-list" data="" />
-      <template  is="tab-list" data="" />
-      <template  is="tab-list" data="" />
-      <template  is="tab-list" data="" />
-      <template  is="tab-list" data="" />
-      <template  is="tab-list" data="" />
+      <block wx:for="{{tabs}}" wx:key="{{index}}">
+        <template is="tab-list" data="{{...item}}" />
+      </block>
     </view>
   </view>
+
+  <!-- 作品分类 -->
   <view class="book-classify">
-    <template is="classify-title" data="" />
+    <template is="classify-title" data="{{name: '古诗/书籍/影视'}}" />
     <view class="content">
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
+      <block wx:for="{{books}}" wx:key="{{index}}">
+        <template is="book-list" data="{{...item}}" />
+      </block>
     </view>
   </view>
-  <view class="movie-classify">
-    <template is="classify-title" data="" />
+
+  <!-- 作者分类 -->
+  <view class="author-classify">
+    <template is="classify-title" data="{{name: '名人名言'}}" />
     <view class="content">
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-      <template  is="book-list" data="" />
-    </view>
-  </view>
-  <view class="person-classify">
-    <template is="classify-title" data="" />
-    <view class="content">
-      <template  is="person-list" data="" />
-      <template  is="person-list" data="" />
-      <template  is="person-list" data="" />
-      <template  is="person-list" data="" />
-      <template  is="person-list" data="" />
-      <template  is="person-list" data="" />
-      <template  is="person-list" data="" />
-      <template  is="person-list" data="" />
-      <template  is="person-list" data="" />
+      <block wx:for="{{authors}}" wx:key="{{index}}">
+        <template is="author-list" data="{{...item}}" />
+      </block>
     </view>
   </view>
 </view>

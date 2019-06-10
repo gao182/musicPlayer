@@ -1,9 +1,15 @@
 .whoUp, .socialityInfo {
   width: 100%;
+  padding: 0 28rpx;
+  padding-bottom: 16rpx;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+}
+
+.whoUp{
+  padding-top: 36rpx;
 }
 
 .userPhoto {
@@ -14,10 +20,13 @@
   background-position: center;
   background-color: #f8f8f8;
 }
-
+.whoUp > navigator{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .whoUp .userName {
   margin-left: 12rpx;
-  flex-grow: 1;
   font-size: 34rpx;
   color: #7e7d7d;
 }
@@ -36,10 +45,10 @@
 
 .juziInfo {
   width: 100%;
-  padding-top: 28rpx;
-  padding-bottom: 12rpx;
+  padding: 16rpx 28rpx;
   border-bottom: 1px solid #f8f8f8;
   font-size: 34rpx;
+  box-sizing: border-box;
 }
 
 .juziInfo > view {
@@ -65,11 +74,9 @@
 }
 
 .socialityInfo {
+  padding: 28rpx;
   justify-content: space-between;
   color: #7e7d7d;
+  box-sizing: border-box;
 }
 
-.socialityInfo .iconfont {
-  display: inline-block;
-  padding-top: 16rpx;
-}

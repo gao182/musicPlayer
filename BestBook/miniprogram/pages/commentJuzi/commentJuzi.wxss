@@ -8,25 +8,24 @@ page {
 
 .juzi-list, .label, .hot-comment, .all-comment {
   width: 100%;
-  padding: 28rpx 28rpx;
   margin-bottom: 24rpx;
   background-color: white;
-  box-sizing: border-box;
-}
-
-.juzi-list {
-  padding-top: 36rpx;
 }
 
 .label {
+  padding: 28rpx;
   display: flex;
+  box-sizing: border-box;
 }
 
 .label .label-list {
   margin-left: 20rpx;
 }
+
 .hot-comment, .all-comment {
   margin-bottom: 0;
+  padding: 0 28rpx;
+  box-sizing: border-box;
 }
 .hot-comment .title,.all-comment .title{
   padding: 12rpx 0;

@@ -51,11 +51,14 @@
 /*用戶*/
 .upUser{
   width: 100%;
-  padding: 40rpx;
+  padding: 28rpx 0;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+}
+.whoUp {
+  min-width: 380rpx;
 }
 .userPhoto{
   width: 48rpx;
@@ -69,10 +72,7 @@
   font-size: 22rpx;
   line-height: 32rpx;
 }
-.upUser .whoUp{
-  flex-grow: 1;
-}
-.upUser .socialityInfo{
-  flex-grow: 1;
+.upUser>.socialityInfo{
   margin-left: 30rpx;
+  padding-bottom: 16rpx;
 }

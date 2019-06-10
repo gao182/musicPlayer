@@ -2,9 +2,11 @@
 <!-- 发布句子用户头像姓名 -->
 <template name="upUser">
   <view class="whoUp">
-    <view class="userPhoto" style="background-image:url({{avatarUrl}})"></view>
-    <view class="userName">{{nickName}}</view>
-    <button class="attention">+关注</button>
+    <navigator url="../others/others?uid={{_openid}}" open-type="navigate">
+      <view class="userPhoto" style="background-image:url({{avatarUrl}})"></view>
+      <view class="userName">{{nickName}}</view>
+    </navigator>
+    <button class="attention" bindtap="attention" data-openid="{{_openid}}">+关注</button>
   </view>
 </template>
 

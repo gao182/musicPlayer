@@ -1,18 +1,47 @@
 // miniprogram/pages/classify/classify.js
+import { getImginfo, getClassify } from "../../src/database"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    tabs: {},
+    books: {},
+    authors: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getAlls("classify-tabs")
+    this.getAlls("classify-books")
+    this.getAlls("classify-authors")
+  },
 
+  //获取分类
+  getAlls(style){
+    getClassify(style).then(res => {
+      let classify = res.data
+      getImginfo(classify).then(res => {
+        let imgList = res.fileList
+        imgList.forEach(e1 => {
+          classify.forEach(e2 => {
+            if (e2.imgUrl === e1.fileID) {
+              e2.imgUrl = e1.tempFileURL
+              return
+            }
+          })
+        })
+        if (style === "classify-tabs")
+          this.setData({ tabs: classify })
+        else if (style === "classify-books")
+          this.setData({ books: classify })
+        else if (style === "classify-authors")
+          this.setData({ authors: classify })
+      })
+    }).catch(err => console.error(err))
   },
 
   /**

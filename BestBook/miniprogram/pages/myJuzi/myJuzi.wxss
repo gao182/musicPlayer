@@ -15,7 +15,5 @@ page{
 
 .list-item{
   margin-bottom: 20rpx;
-  padding: 28rpx 28rpx;
-  padding-top: 36rpx;
   background-color: white;
 }

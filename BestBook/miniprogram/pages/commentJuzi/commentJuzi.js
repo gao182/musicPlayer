@@ -1,5 +1,6 @@
 // miniprogram/pages/commentJuzi/commentJuzi.js
 import { showsucc, showerr, getcurrentJuzi, getuser, getImginfo } from "../../src/database"
+
 Page({
 
   /**

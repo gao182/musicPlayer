@@ -36,15 +36,15 @@
   background-size: cover;
   background-position: center;
   border-radius: 8rpx;
-  opacity: 0.8;
-  filter: alpha(opacity=80);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
 }
 
-.book-list, .person-list {
+.book-list, .author-list {
   display: flex;
 }
 
-.book-list .img, .person-list .img {
+.book-list .img, .author-list .img {
   flex-shrink: 0;
   width: 132rpx;
   height: 200rpx;
@@ -53,17 +53,28 @@
   background-position: center;
 }
 
-.book-list .book-info, .person-list .person-info {
+.book-list .img.no .title{
+  min-height: 160rpx;
+  margin: 10rpx 0 10rpx 20rpx;
+  padding: 0 4rpx;
+  display: inline-block;
+  -webkit-writing-mode: tb-rl;      
+  writing-mode: tb-rl;
+  font-size: 16rpx;
+  background-color: #fff;
+}
+
+.book-list .book-info, .author-list .author-info {
   margin-left: 20rpx;
 }
 
-.book-info .book-name, .person-info .person-name {
+.book-info .book-name, .author-info .author-name {
   font-weight: bold;
   color: #140e0e;
 }
 
-.book-info .book-intro, .person-info .person-intro {
-  margin: 30rpx 0;
+.book-info .book-intro, .author-info .author-intro {
+  margin-bottom: 30rpx;
   font-size: 26rpx;
   color: #7e7d7d;
   display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
@@ -72,16 +83,22 @@
   overflow: hidden; /** 隐藏超出的内容 **/
 }
 
-.book-info .book-count, .person-info .person-count {
+.book-info .book-count, .author-info .author-count {
   color: #14b0ff;
   font-size: 26rpx;
   font-weight: bold;
 }
 
-.person-list .img {
+.author-list .img {
   height: 142rpx;
+  line-height: 142rpx;
+  text-align: center;
+}
+.author-list .img.no{
+  border: 1px solid #eee;
+}
+.author-list .img.no .title{
+  font-size: 20rpx;
+  color: #b19157;
 }
 
-.person-info .person-intro {
-  margin-top: 0;
-}

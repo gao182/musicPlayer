@@ -37,7 +37,7 @@ function adduser(userinfo) {
     .catch(err => showerr('加入美句集失败'))
 }
 
-//新增照片
+//新增含图片数据
 function addData(data) {
   if (data.imgUrl.match('images/img.png') === null) {
     const urlArray = data.imgUrl.split('.')
@@ -82,6 +82,7 @@ function addJz(data) {
       wx.showToast({
         title: '新增记录成功',
         success() {
+          app.globalData.addsuccess = true
           setTimeout(() => {
             wx.navigateBack({
               delta: 1
@@ -144,10 +145,10 @@ function getcurrentJuzi(id) {
 }
 
 //查询用户句子信息
-function getuserJuzi(userid) {
+function getuserJuzi(userid,str) {
   return db.collection('juzi').where({
     _openid: userid
-  }).get()
+  }).orderBy('time', str).get()
 }
 
 //显示服务端存储图片
@@ -161,6 +162,24 @@ function getImginfo(imgurl) {
   })
 }
 
+//查询分类
+function getClassify(style, name){
+  return db.collection(style).where({ name: name }).get()
+}
+
+//增加分类
+function addClassify(style, name, author){
+  db.collection(style).add({
+    data:{
+      name: name,
+      author: author,
+      imgUrl: "",
+      description: "",
+      count: 1
+    }
+  })
+}
+
 export {
   showsucc,
   showerr,
@@ -170,5 +189,7 @@ export {
   getJuzi,
   getcurrentJuzi,
   getuserJuzi,
-  getImginfo
+  getImginfo,
+  getClassify,
+  addClassify
 }

@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "偶遇佳句"
+  "navigationBarTitleText": "偶遇佳句",
+  "enablePullDownRefresh": true
 }

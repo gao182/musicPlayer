@@ -55,7 +55,5 @@ page {
 
 .hotInfo .list-item, .newInfo .list-item, .attentionInfo .list-item {
   margin-bottom: 24rpx;
-  padding: 28rpx 28rpx;
-  padding-top: 36rpx;
   background-color: white;
 }

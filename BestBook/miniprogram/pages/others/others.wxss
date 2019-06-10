@@ -63,9 +63,12 @@ page {
   border-bottom: 1px solid #eee;
 }
 
-.list-item, .book-list{
+.list-item,.book-list{
   margin-bottom: 20rpx;
+  background-color: white;
+}
+
+.book-list{
   padding: 28rpx 28rpx;
   padding-top: 36rpx;
-  background-color: white;
 }

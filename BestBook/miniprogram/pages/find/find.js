@@ -30,7 +30,8 @@ Page({
         let random = Math.floor(Math.random() * (res.data.length + 1))
         let juziAry = res.data.splice(random, 1)
         let t = new Date()
-        console.log()
+        juziAry[0].imgUrl = juziAry[0].imgUrl ? juziAry[0].imgUrl : 
+          "cloud://juzi-qf0a0.6a75-juzi-qf0a0/classify/demo1.jpg";
         getImginfo(juziAry).then(res => {
           juziAry[0].imgUrl = res.fileList[0].tempFileURL
           this.setData({

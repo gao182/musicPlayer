@@ -6,7 +6,7 @@
   <!-- 用户 -->
   <view class="userinfo">
     <view class="userinfo-avatar" style="background-image: url({{userInfo.avatarUrl}})"></view>
-    <text class="userinfo-name">{{userInfo.name}}</text>
+    <text class="userinfo-name">{{userInfo.nickName}}</text>
   </view>
   <!-- 关注私信 -->
   <view class="control">
@@ -29,13 +29,13 @@
     </view>
     <view wx:else>
       <block wx:for="{{userjuzi}}" wx:key="index">
-        <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
-          <view class="list-item">
-            <template is="user-photo" data="{{...item}}" />
+        <view class="list-item">
+          <template is="user-photo" data="{{...item}}" />
+          <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
             <template is="juziShow" data="{{...item}}" />
-            <template is="sociality" data="" />
-          </view>
-        </navigator>
+          </navigator>
+          <template is="sociality" data="" />
+        </view>
       </block>
     </view>
   </view>
