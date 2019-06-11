@@ -2,7 +2,7 @@
 <import src="../../src/template/juzi-list.wxml" />
 <view class="container">
   <!-- 搜索框 隐藏 -->
-  <view class="search" wx:if="{{isSearch}}">
+  <view class="search" hidden="{{!isSearch}}">
     <icon type="clear" size="16" bindtap="closeSearch"></icon>
     <input placeholder="请输入..." placeholder-class="placeholder"></input>
     <text class="iconfont icon-search" bindtap="search"></text>
@@ -17,33 +17,33 @@
   </view>
 
   <!-- 展示推荐列表 -->
-  <view class="hotInfo" wx:if="{{whoshow === 2}}">
+  <view class="hotInfo" hidden="{{whoshow !== 2}}">
     <block wx:for="{{hotjuzi}}" wx:key="index">
       <view class="list-item">
-        <template is="upUser" data="{{...item}}" />
+        <template is="{{userInfo._openid && userInfo._openid === item._openid ? 'user-photo' : 'upUser'}}" data="{{...item, attwho, noattwho}}" />
         <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
           <template is="juziShow" data="{{...item}}" />
         </navigator>
-        <template is="sociality" data="" />
+        <template is="sociality" data="{{...item,index}}" />
       </view>
     </block>
   </view>
 
   <!-- 展示最新列表 -->
-  <view class="newInfo" wx:elif="{{whoshow === 3}}">
+  <view class="newInfo" hidden="{{whoshow !== 3}}">
     <block wx:for="{{newjuzi}}" wx:key="index">
       <view class="list-item">
-        <template is="upUser" data="{{...item}}" />
+        <template is="{{userInfo._openid && userInfo._openid === item._openid ? 'user-photo' : 'upUser'}}" data="{{...item}}" />
         <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
           <template is="juziShow" data="{{...item}}" />
         </navigator>
-        <template is="sociality" data="" />
+        <template is="sociality" data="{{...item}}" />
       </view>
     </block>
   </view>
 
   <!-- 展示关注列表 -->
-  <view class="attentionInfo" wx:elif="{{whoshow === 1}}">
+  <view class="attentionInfo" hidden="{{whoshow !== 1}}">
     <view class="noAttention" wx:if="{{true}}">
       <view class="iconfont icon-author"></view>
       你还没用关注任何人

@@ -23,18 +23,52 @@ function showerr(text) {
   })
 }
 
+
+//查询用户信息
+function getuser(uid) {
+  return db.collection('userinfo').where({
+    _openid: uid
+  }).get()
+}
+
 //新增用户
 function adduser(userinfo) {
   db.collection('userinfo').add({
+    data: {
+      nickName: userinfo.nickName,
+      avatarUrl: userinfo.avatarUrl,
+      fan: [],
+      attention: [],
+      popularity: 0
+    }
+  }).then(res => {
+    app.globalData.userInfo._id = res._id
+    showsucc('加入美句集成功')
+  }).catch(err => showerr('加入美句集失败'))
+}
+
+//修改用户数据信息
+function setuser(id, name, data) {
+  if (name === "attention") {
+    return db.collection("userinfo").doc(id).update({
       data: {
-        nickName: userinfo.nickName,
-        avatarUrl: userinfo.avatarUrl,
-        fan: 0,
-        attention: 0,
-        popularity: 0
+        attention: data
       }
-    }).then(res => showsucc('加入美句集成功'))
-    .catch(err => showerr('加入美句集失败'))
+    })
+  } else if (name === "collect") {
+    return db.collection("userinfo").doc(id).update({
+      data: {
+        collect: data
+      }
+    })
+  } else {
+    return db.collection("userinfo").doc(id).update({
+      data: {
+        nickName: data.nickName,
+        avatarUrl: data.avatarUrl
+      }
+    })
+  }
 }
 
 //新增含图片数据
@@ -76,7 +110,10 @@ function addJz(data) {
       author: data.author,
       from: data.from,
       juji: data.juji,
-      time: db.serverDate()
+      time: db.serverDate(),
+      love: 0,
+      comment: [],
+      collect: []
     },
     success: function(res) {
       wx.showToast({
@@ -125,14 +162,7 @@ function addJj(data) {
   })
 }
 
-//查询用户信息
-function getuser(uid) {
-  return db.collection('userinfo').where({
-    _openid: uid
-  }).get()
-}
-
-//查询全部句子信息
+//查询最新句子信息
 function getJuzi(str) {
   return db.collection('juzi').orderBy('time', str).get()
 }
@@ -145,11 +175,44 @@ function getcurrentJuzi(id) {
 }
 
 //查询用户句子信息
-function getuserJuzi(userid,str) {
+function getuserJuzi(userid, str) {
   return db.collection('juzi').where({
     _openid: userid
   }).orderBy('time', str).get()
 }
+
+//查询用户句子信息
+function getuserallJuzi(userid) {
+  return db.collection('juzi').where({
+    _openid: userid
+  }).get()
+}
+
+//修改句子信息
+function setJuzi(id, name, data) {
+  if (name === "user") {
+    return db.collection("juzi").doc(id).update({
+      data: {
+        nickName: data.nickName,
+        avatarUrl: data.avatarUrl
+      }
+    })
+  } else if (name === "love") {
+    console.log(id,data)
+    return db.collection("juzi").doc(id).update({
+      data: {
+        love: data
+      }
+    })
+  } else if (name === "collect") {
+    return db.collection("juzi").doc(id).update({
+      data: {
+        collect: data
+      }
+    })
+  }
+}
+
 
 //显示服务端存储图片
 function getImginfo(imgurl) {
@@ -163,14 +226,16 @@ function getImginfo(imgurl) {
 }
 
 //查询分类
-function getClassify(style, name){
-  return db.collection(style).where({ name: name }).get()
+function getClassify(style, name) {
+  return db.collection(style).where({
+    name: name
+  }).get()
 }
 
 //增加分类
-function addClassify(style, name, author){
+function addClassify(style, name, author) {
   db.collection(style).add({
-    data:{
+    data: {
       name: name,
       author: author,
       imgUrl: "",
@@ -180,16 +245,27 @@ function addClassify(style, name, author){
   })
 }
 
+//修改分类
+function setClassify(style, id, data) {
+  return db.collection(style).doc(id).update({
+    data: { count: data }
+  })
+}
+
 export {
   showsucc,
   showerr,
-  adduser,
-  addData,
   getuser,
+  adduser,
+  setuser,
+  addData,
   getJuzi,
   getcurrentJuzi,
   getuserJuzi,
+  getuserallJuzi,
+  setJuzi,
   getImginfo,
   getClassify,
-  addClassify
+  addClassify,
+  setClassify
 }

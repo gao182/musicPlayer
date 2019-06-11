@@ -11,7 +11,12 @@ App({
     }
 
     this.globalData = {
-      userInfo: {}
+      userInfo: {
+        popularity: 0,
+        attention: [],
+        fan: []
+      },
+      addsuccess: null
     }
   }
 })

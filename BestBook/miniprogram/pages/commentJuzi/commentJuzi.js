@@ -21,10 +21,16 @@ Page({
 
   /*查询当个句子*/
   getjuzi(id) {
+    wx.showLoading({
+      title: '加载中',
+    })
+
     //查询最热句子
     getcurrentJuzi(id).then(res => {
       let data = res.data
       getImginfo(data).then(res => {
+        wx.hideLoading()  //隐藏加载
+        
         data[0].imgUrl = res.fileList[0].tempFileURL
         let t = new Date(data[0].time)
         data[0].time = t.toLocaleDateString() + ' ' + t.toLocaleTimeString()

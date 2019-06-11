@@ -6,14 +6,20 @@
       <view class="userPhoto" style="background-image:url({{avatarUrl}})"></view>
       <view class="userName">{{nickName}}</view>
     </navigator>
-    <button class="attention" bindtap="attention" data-openid="{{_openid}}">+关注</button>
+    
+    <button class="attention {{noattwho===_id? '':'on'}}" bindtap="unsubscribe" 
+     data-openid="{{_openid}}" data-id="{{_id}}" data-fan="{{fan}}"
+     hidden="{{!isattention}}">{{noattwho===_id? '√已取关':'取消关注'}}</button>
+    <button class="attention {{attwho===_id? 'on':''}}" bindtap="attention"
+     data-openid="{{_openid}}" data-id="{{_id}}" data-fan="{{fan}}" 
+     hidden="{{isattention}}">{{attwho===_id? '√已关注':'+关注'}}</button>
   </view>
 </template>
 
 <template name="user-photo">
-  <view class="whoUp">
+  <view class="whoUp nobtn">
     <view class="userPhoto" style="background-image:url({{avatarUrl}})"></view>
-    <view class="userName nobtn">{{nickName}}</view>
+    <view class="userName">{{nickName}}</view>
   </view>
 </template>
 
@@ -36,17 +42,18 @@
 <!-- 句子点赞评论收藏 -->
 <template name="sociality">
   <view class="socialityInfo">
-    <view class="love">
+    <view class="love" bindtap="onlove" data-id="{{_id}}" 
+      data-index="{{index}}" data-love="{{love}}">
       <text class="iconfont icon-love"></text>
-      <text>0</text>
+      <text>{{love}}</text>
     </view>
-    <view class="comment">
+    <view class="comment" bindtap="oncomment" data-id="{{_id}}">
       <text class="iconfont icon-comment1"></text>
-      <text>0</text>
+      <text>{{comment.length}}</text>
     </view>
-    <view class="collect">
+    <view class="collect" bindtap="oncollect" data-id="{{_id}}">
       <text class="iconfont icon-collect1"></text>
-      <text>0</text>
+      <text>{{collect.length}}</text>
     </view>
   </view>
 </template>

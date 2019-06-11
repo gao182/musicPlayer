@@ -17,7 +17,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getMyjuzi(app.globalData.openid,"desc")
+    if (!app.globalData.userInfo._openid) {
+      wx.showToast({
+        icon: 'none',
+        title: '请先登录',
+        success() {
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1000)
+        }
+      })
+    }
+    this.getMyjuzi(app.globalData.userInfo._openid,"desc")
   },
 
 
@@ -112,6 +125,6 @@ Page({
     this.setData({
       isNew: false
     })
-    this.getMyjuzi(app.globalData.openid, "asc")
+    this.getMyjuzi(app.globalData.userInfo._openid, "asc")
   }
 })

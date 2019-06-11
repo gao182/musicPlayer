@@ -22,9 +22,15 @@ Page({
 
   //获取分类
   getAlls(style){
+    wx.showLoading({
+      title: '加载中',
+    })
+
     getClassify(style).then(res => {
       let classify = res.data
       getImginfo(classify).then(res => {
+        wx.hideLoading()  //隐藏加载
+
         let imgList = res.fileList
         imgList.forEach(e1 => {
           classify.forEach(e2 => {

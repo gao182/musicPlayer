@@ -30,7 +30,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (!app.globalData.openid) {
+    if (!app.globalData.userInfo._openid) {
       wx.showToast({
         icon: 'none',
         title: '请先登录',
@@ -67,6 +67,7 @@ Page({
     if (app.globalData.addsuccess){
       this.getClassifyAuthor()
       this.getClassifyBook()
+      app.globalData.addsuccess = false
     }
   },
 

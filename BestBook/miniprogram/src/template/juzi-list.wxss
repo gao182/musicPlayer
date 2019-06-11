@@ -11,6 +11,9 @@
 .whoUp{
   padding-top: 36rpx;
 }
+.whoUp.nobtn{
+  justify-content: flex-start;
+}
 
 .userPhoto {
   width: 72rpx;
@@ -30,9 +33,6 @@
   font-size: 34rpx;
   color: #7e7d7d;
 }
-.whoUp .userName.nobtn{
-  flex-grow: 0;
-}
 .whoUp .attention {
   margin: 0;
   padding: 8rpx 12rpx;
@@ -42,6 +42,12 @@
   border: 1px solid #ff8b40;
   border-radius: 2px;
 }
+
+.whoUp .attention.on{
+  color: #7e7d7d;
+  border: 1px solid #7e7d7d;
+}
+
 
 .juziInfo {
   width: 100%;

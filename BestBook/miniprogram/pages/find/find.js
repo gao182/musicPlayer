@@ -23,16 +23,22 @@ Page({
 
   /*查询单个随机佳句*/
   getJuzi() {
+    wx.showLoading({
+      title: '加载中',
+    })
+
     const db = wx.cloud.database()
     db.collection('juzi').orderBy('time', 'desc')
       .limit(10)
       .get().then((res) => {
-        let random = Math.floor(Math.random() * (res.data.length + 1))
+        let random = Math.floor(Math.random() * res.data.length)
         let juziAry = res.data.splice(random, 1)
         let t = new Date()
         juziAry[0].imgUrl = juziAry[0].imgUrl ? juziAry[0].imgUrl : 
           "cloud://juzi-qf0a0.6a75-juzi-qf0a0/classify/demo1.jpg";
         getImginfo(juziAry).then(res => {
+          wx.hideLoading()  //隐藏加载
+
           juziAry[0].imgUrl = res.fileList[0].tempFileURL
           this.setData({
             juzi: juziAry[0],

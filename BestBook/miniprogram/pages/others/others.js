@@ -11,8 +11,8 @@ Page({
     isShowjuzi: true,
     userInfo: {
       popularity: 0,
-      attention: 0,
-      fan: 0
+      attention: [],
+      fan: []
     },
     userjuzi: {}
   },
@@ -21,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (options.uid === app.globalData.openid) {
+    if (options.uid === app.globalData.userInfo._openid) {
       wx.switchTab({
         url: '../myself/myself'
       })

@@ -6,11 +6,11 @@
       <text class="dataname popularity">人气</text>
     </view>
     <view class="attention">
-      <text class="number attention">{{attention}}</text>
+      <text class="number attention">{{attention.length}}</text>
       <text class="dataname attention">关注</text>
     </view>
     <view class="fan last">
-      <text class="number fan">{{fan}}</text>
+      <text class="number fan">{{fan.length}}</text>
       <text class="dataname fan">粉丝</text>
     </view>
   </view>
