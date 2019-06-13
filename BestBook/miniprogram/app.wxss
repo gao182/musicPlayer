@@ -26,7 +26,8 @@ button::after{
 /*头部分类标签*/
 .category {
   width: 100%;
-  text-align: center;
+  display: flex;
+  align-items: center;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 .category > text {
@@ -36,7 +37,10 @@ button::after{
 }
 .category > text.active {
   border-bottom: 2px solid #ff8b40;
+  font-weight: bold;
+  color: #140e0e;
 }
+
 
 /*文本框提示信息*/
 .placeholder {

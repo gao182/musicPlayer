@@ -7,8 +7,11 @@
     "pages/addJu/addJu",
     "pages/commentJuzi/commentJuzi",
     "pages/others/others",
-    "pages/myJuzi/myJuzi",
-    "pages/myJuji/myJuji"
+    "pages/myedit/myedit",
+    "pages/juziList/juziList",
+    "pages/search/search",
+    "pages/authorAll/authorAll",
+    "pages/userList/userList"
   ],
   "window": {
     "backgroundTextStyle": "dark",

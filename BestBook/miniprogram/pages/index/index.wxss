@@ -17,13 +17,7 @@ page {
 .category .iconfont {
   padding: 0;
   margin: 0 24rpx;
-  vertical-align: middle;
   font-size: 44rpx;
-}
-
-.category > text.active {
-  font-weight: bold;
-  color: #140e0e;
 }
 
 .search {

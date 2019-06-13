@@ -46,10 +46,7 @@ Page({
       if (res.data.length <= 0) {
         adduser(this.data.userInfo)
       } else {
-        app.globalData.userInfo._id = res.data[0]._id  //將用戶信息放入全局app中
-        app.globalData.userInfo.popularity = res.data[0].popularity
-        app.globalData.userInfo.attention = res.data[0].attention
-        app.globalData.userInfo.fan = res.data[0].fan
+        app.globalData.userInfo = res.data[0]  //將用戶信息放入全局app中
 
         this.setData({ sociality: app.globalData.userInfo })
         showsucc('成功登录')
@@ -66,52 +63,12 @@ Page({
       }
     }).catch(()=>showerr('查询用户失败'))
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     this.setData({sociality: app.globalData.userInfo})
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   },
 
   /*点击获取用户信息*/
@@ -126,5 +83,46 @@ Page({
       })
     }
     this.onLoad()
+  },
+
+  onmyjuzi(){
+    if (!app.globalData.userInfo._openid) {
+      showsucc('请先登录', 'none')
+      return
+    }
+    wx.navigateTo({
+      url: `../myJuzi/myJuzi?openid=${app.globalData.userInfo._openid}`,
+    })
+  },
+
+  onmyjuji() {
+    if (!app.globalData.userInfo._openid) {
+      showsucc('请先登录', 'none')
+      return
+    }
+    wx.navigateTo({
+      url: `../myJuji/myJuji?openid=${app.globalData.userInfo._openid}`,
+    })
+  },
+
+  onattList(){
+    if (!app.globalData.userInfo._openid) {
+      showsucc('请先登录','none')
+      return
+    }
+
+    wx.navigateTo({
+      url: `../userList/userList?att_openid=${app.globalData.userInfo._openid}`,
+    })
+  },
+
+  onfanList(){
+    if (!app.globalData.userInfo._openid) {
+      showsucc('请先登录', 'none')
+      return
+    }
+    wx.navigateTo({
+      url: `../userList/userList?fan_openid=${app.globalData.userInfo._openid}`,
+    })
   }
 })

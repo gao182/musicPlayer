@@ -1,0 +1,40 @@
+<!--miniprogram/pages/myJuji/myJuji.wxml-->
+<import src="../../src/template/classify.wxml" />
+<view class="container">
+  <view class="category">
+    <text class="category-juji {{isNew? 'active':''}}" bindtap="showNew">最新</text>
+    <text class="category-juji {{isNew? '':'active'}}" bindtap="showHot">最热</text>
+  </view>
+
+  <!-- 展示最新列表 -->
+  <view class="juji-panel" wx:if="{{isNew}}">
+    <view class="noAttention" wx:if="{{false}}">
+      <view class="iconfont icon-book"></view>
+      你还没用发布任何信息
+    </view>
+    <view class="juji-list" wx:else>
+      <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
+        <template  is="book-list" data="" />
+      </navigator>
+      <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
+        <template  is="book-list" data="" />
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 展示最热列表 -->
+  <view class="juji-panel" wx:else>
+    <view class="noAttention" wx:if="{{true}}">
+      <view class="iconfont icon-book"></view>
+      你还没用发布任何信息
+    </view>
+    <view wx:else>
+      <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
+        <template  is="book-list" data="" />
+      </navigator>
+      <navigator url="../commentJuzi/commentJuzi" open-type="navigate">
+        <template  is="book-list" data="" />
+      </navigator>
+    </view>
+  </view>
+</view>

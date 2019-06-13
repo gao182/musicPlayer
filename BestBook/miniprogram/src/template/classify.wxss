@@ -40,11 +40,11 @@
   filter: alpha(opacity=70);
 }
 
-.book-list, .author-list {
+.book-list, .author-list, .juji-list, .user-list {
   display: flex;
 }
 
-.book-list .img, .author-list .img {
+.book-list .img, .author-list .img, .juji-list .img, .user-list .img {
   flex-shrink: 0;
   width: 132rpx;
   height: 200rpx;
@@ -53,7 +53,7 @@
   background-position: center;
 }
 
-.book-list .img.no .title{
+.book-list .img.no .title, .juji-list .img.no .title{
   min-height: 160rpx;
   margin: 10rpx 0 10rpx 20rpx;
   padding: 0 4rpx;
@@ -64,16 +64,16 @@
   background-color: #fff;
 }
 
-.book-list .book-info, .author-list .author-info {
+.book-list .book-info, .author-list .author-info, .juji-list .juji-info, .user-list .user-info {
   margin-left: 20rpx;
 }
 
-.book-info .book-name, .author-info .author-name {
+.book-info .book-name, .author-info .author-name,.juji-info .juji-name, .user-info .user-name {
   font-weight: bold;
   color: #140e0e;
 }
 
-.book-info .book-intro, .author-info .author-intro {
+.book-info .book-intro, .author-info .author-intro, .juji-list .create{
   margin-bottom: 30rpx;
   font-size: 26rpx;
   color: #7e7d7d;
@@ -83,13 +83,26 @@
   overflow: hidden; /** 隐藏超出的内容 **/
 }
 
-.book-info .book-count, .author-info .author-count {
+.juji-list .author-name{
+  color: #14b0ff;
+  font-size: 26rpx;
+}
+
+.user-list .count-box{
+  display: flex;
+  color: #7e7d7d;
+}
+.user-list .count-box .bold{
+  font-weight: bold;
+}
+
+.book-info .book-count, .author-info .author-count,.juji-info .juji-count{
   color: #14b0ff;
   font-size: 26rpx;
   font-weight: bold;
 }
 
-.author-list .img {
+.author-list .img, .user-list .img  {
   height: 142rpx;
   line-height: 142rpx;
   text-align: center;

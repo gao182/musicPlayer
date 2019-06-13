@@ -24,7 +24,8 @@
   </view>
   
   <!-- 评价句子 -->
-  <view class="comment-input">
-    <input placeholder="分享一下感想吧" placeholder-class='placeholder'></input>
+  <view class="comment-input" id="comment-input">
+    <input placeholder="分享一下感想吧" placeholder-class='placeholder' 
+     focus="{{isfocus}}"></input>
   </view>
 </view>

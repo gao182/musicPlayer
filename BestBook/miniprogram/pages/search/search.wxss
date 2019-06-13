@@ -1,0 +1,69 @@
+/* miniprogram/pages/search/search.wxss */
+@import "../../src/template/juzi-list.wxss";
+@import "../../src/template/classify.wxss";
+
+page {
+  background-color: #f4f4f6;
+}
+
+.search{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.search input{
+  margin: 24rpx 12rpx;
+  padding: 4rpx 12rpx;
+  width: 80%;
+  background-color: #f4f4f6;
+  border-radius: 40rpx;
+}
+
+.nav {
+  overflow-x: scroll;
+  border-bottom: 1px solid #eee;
+}
+
+.category {
+  width: 130%;
+  text-align: left;
+  background-color: white;
+  box-shadow: 0 0 rgb(255, 255, 255);
+}
+.category .category-juzi{
+  margin-left: 28rpx;
+}
+.category .category-book{
+  margin-right: 28rpx;
+}
+
+.count{
+  width: 100%;
+  margin: 32rpx 0;
+  padding-left: 28rpx;
+  box-sizing: border-box;
+}
+
+.panel{
+  width: 100%;
+}
+
+.book-list, .author-list, .juji-list, .user-list{
+  padding: 36rpx 28rpx;
+  margin-bottom: 24rpx;
+  background-color: white;
+}
+.list-item{
+  margin-bottom: 32rpx;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-list .btn-att{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

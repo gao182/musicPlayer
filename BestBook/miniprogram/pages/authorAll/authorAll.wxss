@@ -1,0 +1,29 @@
+/* miniprogram/pages/authorAll/authorAll.wxss */
+@import "../../src/template/sociality-count.wxss";
+@import "../../src/template/juzi-list.wxss";
+@import "../../src/template/classify.wxss";
+
+page {
+  background: #f4f4f6;
+}
+
+.category {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 rgb(255, 255, 255);
+  border-bottom: 1px solid #eee;
+}
+
+.juzi-panel{
+  width: 100%;
+}
+
+.list-item,.book-list{
+  margin-bottom: 20rpx;
+  background-color: white;
+}
+
+.book-list{
+  padding: 28rpx 28rpx;
+  padding-top: 36rpx;
+}

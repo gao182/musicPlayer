@@ -1,9 +1,12 @@
 const app = getApp()
 const db = wx.cloud.database()
+const _ = db.command
 
 //成功
-function showsucc(text) {
+function showsucc(text,style) {
+  let i = style ? style : "success"
   wx.showToast({
+    icon: i,
     title: text
   })
 }
@@ -23,7 +26,6 @@ function showerr(text) {
   })
 }
 
-
 //查询用户信息
 function getuser(uid) {
   return db.collection('userinfo').where({
@@ -39,7 +41,8 @@ function adduser(userinfo) {
       avatarUrl: userinfo.avatarUrl,
       fan: [],
       attention: [],
-      popularity: 0
+      popularity: 0,
+      collect: []
     }
   }).then(res => {
     app.globalData.userInfo._id = res._id
@@ -95,7 +98,6 @@ function addData(data) {
     else
       addJj(data)
   }
-
 }
 
 //新增句子
@@ -113,7 +115,7 @@ function addJz(data) {
       time: db.serverDate(),
       love: 0,
       comment: [],
-      collect: []
+      collectCount: 0
     },
     success: function(res) {
       wx.showToast({
@@ -163,54 +165,90 @@ function addJj(data) {
 }
 
 //查询最新句子信息
-function getJuzi(str) {
-  return db.collection('juzi').orderBy('time', str).get()
+function getnewJuzi(n) {
+  if (n === 0)
+    return db.collection('juzi').orderBy('time', "desc").limit(10).get()
+  else
+    return db.collection('juzi').orderBy('time', "desc").limit(10).skip(n).get()
+}
+
+//查询推荐句子信息
+function gethotJuzi(n) {
+  if(n === 0)
+    return db.collection('juzi').orderBy("love", "desc").orderBy('time', "desc").limit(10).get()
+  else
+    return db.collection('juzi').orderBy("love", "desc").orderBy('time', "desc").limit(10).skip(n).get()
+}
+
+//查询关注的句子信息
+function getattJuzi(data, n) {
+  if (n === 0)
+    return db.collection('juzi').where({
+      _openid: _.in(data)
+    }).orderBy('time', "desc").limit(10).get()
+  else
+    return db.collection('juzi').where({
+      _openid: _.in(data)
+    }).orderBy('time', "desc").limit(10).skip(n).get()
 }
 
 //查询单个句子信息
-function getcurrentJuzi(id) {
+function getoneJuzi(id) {
   return db.collection('juzi').where({
     _id: id
   }).get()
 }
 
-//查询用户句子信息
-function getuserJuzi(userid, str) {
-  return db.collection('juzi').where({
-    _openid: userid
-  }).orderBy('time', str).get()
+//按句子内容查句子
+function getJuziByword(word,n) {
+  if (n === 0)
+    return db.collection('juzi').where({
+      text: db.RegExp({
+        regexp: word,
+        options: 'i',
+      })
+    }).orderBy('time', "desc").limit(10).get()
+  else
+    return db.collection('juzi').where({
+      text: db.RegExp({
+        regexp: word,
+        options: 'i',
+      })
+    }).orderBy('time', "desc").limit(10).skip(n).get()
 }
 
-//查询用户句子信息
-function getuserallJuzi(userid) {
-  return db.collection('juzi').where({
-    _openid: userid
-  }).get()
+//查询用户最新句子
+function getusernewJuzi(userid, n) {
+  if (n === 0)
+    return db.collection('juzi').where({
+      _openid: userid
+    }).orderBy('time', "desc").limit(10).get()
+  else
+    return db.collection('juzi').where({
+      _openid: userid
+    }).orderBy('time', "desc").limit(10).skip(n).get()
+}
+
+//查询用户最热句子
+function getuserhotJuzi(userid, n) {
+  if (n === 0)
+    return db.collection('juzi').where({
+      _openid: userid
+    }).orderBy('love', "desc").limit(10).get()
+  else
+    return db.collection('juzi').where({
+      _openid: userid
+    }).orderBy('love', "desc").limit(10).skip(n).get()
 }
 
 //修改句子信息
 function setJuzi(id, name, data) {
-  if (name === "user") {
-    return db.collection("juzi").doc(id).update({
-      data: {
-        nickName: data.nickName,
-        avatarUrl: data.avatarUrl
-      }
-    })
-  } else if (name === "love") {
-    console.log(id,data)
-    return db.collection("juzi").doc(id).update({
-      data: {
-        love: data
-      }
-    })
-  } else if (name === "collect") {
-    return db.collection("juzi").doc(id).update({
-      data: {
-        collect: data
-      }
-    })
-  }
+  return db.collection("juzi").doc(id).update({
+    data: {
+      nickName: data.nickName,
+      avatarUrl: data.avatarUrl
+    }
+  })
 }
 
 
@@ -225,11 +263,12 @@ function getImginfo(imgurl) {
   })
 }
 
-//查询分类
-function getClassify(style, name) {
-  return db.collection(style).where({
-    name: name
-  }).get()
+//查询全部分类
+function getClassify(style, n) {
+  if(n === 0)
+    return db.collection(style).limit(10).get()
+  else
+    return db.collection(style).limit(10).skip(n).get()
 }
 
 //增加分类
@@ -248,7 +287,9 @@ function addClassify(style, name, author) {
 //修改分类
 function setClassify(style, id, data) {
   return db.collection(style).doc(id).update({
-    data: { count: data }
+    data: {
+      count: data
+    }
   })
 }
 
@@ -259,10 +300,13 @@ export {
   adduser,
   setuser,
   addData,
-  getJuzi,
-  getcurrentJuzi,
-  getuserJuzi,
-  getuserallJuzi,
+  getnewJuzi,
+  getattJuzi,
+  gethotJuzi,
+  getoneJuzi,
+  getusernewJuzi,
+  getuserhotJuzi,
+  getJuziByword,
   setJuzi,
   getImginfo,
   getClassify,

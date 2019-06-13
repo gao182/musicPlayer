@@ -6,13 +6,14 @@
       <view class="userPhoto" style="background-image:url({{avatarUrl}})"></view>
       <view class="userName">{{nickName}}</view>
     </navigator>
-    
-    <button class="attention {{noattwho===_id? '':'on'}}" bindtap="unsubscribe" 
-     data-openid="{{_openid}}" data-id="{{_id}}" data-fan="{{fan}}"
-     hidden="{{!isattention}}">{{noattwho===_id? '√已取关':'取消关注'}}</button>
-    <button class="attention {{attwho===_id? 'on':''}}" bindtap="attention"
-     data-openid="{{_openid}}" data-id="{{_id}}" data-fan="{{fan}}" 
-     hidden="{{isattention}}">{{attwho===_id? '√已关注':'+关注'}}</button>
+    <!-- 取消关注按钮 -->
+    <button class="attention {{hasunatt? '':'on'}}" bindtap="unsubscribe" data-id="{{_id}}"
+     data-openid="{{_openid}}"  data-index="{{index}}" data-unatt="{{hasunatt}}"
+     hidden="{{!isattention}}">{{hasunatt? '√已取关':'取消关注'}}</button>
+     <!-- 关注按钮 -->
+    <button class="attention {{hasatt? 'on':''}}" bindtap="attention" data-id="{{_id}}"
+     data-openid="{{_openid}}" data-index="{{index}}" data-att="{{hasatt}}"
+     hidden="{{isattention}}">{{hasatt? '√已关注':'+关注'}}</button>
   </view>
 </template>
 
@@ -42,8 +43,8 @@
 <!-- 句子点赞评论收藏 -->
 <template name="sociality">
   <view class="socialityInfo">
-    <view class="love" bindtap="onlove" data-id="{{_id}}" 
-      data-index="{{index}}" data-love="{{love}}">
+    <view class="love" bindtap="onlove" data-id="{{_id}}" data-index="{{index}}" 
+      data-love="{{love}}">
       <text class="iconfont icon-love"></text>
       <text>{{love}}</text>
     </view>
@@ -51,9 +52,10 @@
       <text class="iconfont icon-comment1"></text>
       <text>{{comment.length}}</text>
     </view>
-    <view class="collect" bindtap="oncollect" data-id="{{_id}}">
-      <text class="iconfont icon-collect1"></text>
-      <text>{{collect.length}}</text>
+    <view class="collect {{hascollect? 'on': ''}}" bindtap="oncollect" data-id="{{_id}}" 
+    data-index="{{index}}" data-count="{{collectCount}}" data-hascollect="{{hascollect}}" >
+      <text class="iconfont icon-collect1 {{hascollect? 'on': ''}}"></text>
+      <text>{{collectCount}}</text>
     </view>
   </view>
 </template>

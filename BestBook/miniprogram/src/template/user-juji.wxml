@@ -1,0 +1,42 @@
+<!--miniprogram/pages/template/template.wxml-->
+
+<!-- 句集内容 -->
+<template name="juji-list">
+  <view class="juji-list">
+    <view class="img" style="background-image: url({{imgUrl}})" wx:if="{{imgUrl}}"></view>
+    <view class="img no" style="background-color: #3c433b" wx:else>
+      <text class="title">{{name}}</text>
+    </view>
+    <view class="juji-info">
+      <view class="juji-name">{{name}}</view>
+      <view class="create">
+        <text class="author-name">{{nickName}}</text>
+        发布于{{time}}
+      </view>
+      <view class="juji-count">共收录{{count}}个句子</view>
+    </view>
+  </view>
+</template>
+
+<!-- 用户分类内容 -->
+<template name="user-list">
+  <view class="user-list">
+    <navigator url="../others/others?uid={{_openid}}" open-type="navigate">
+      <view class="img" style="background-image: url({{avatarUrl}})"></view>
+    </navigator>
+    <view class="user-info">
+      <view class="user-name">{{nickName}}</view>
+      <view class="count-box">
+        <view class="juzi-count">句子 <text class="bold">{{juzicount}}</text> | </view>
+        <view class="juji-count">句集 <text class="bold">{{jujicount}}</text> | </view>
+        <view class="fan">粉丝 <text class="bold">{{fan.length}}</text></view>
+      </view>
+    </view>
+    <view class="btn-att">
+      <!-- 取消关注按钮 -->
+      <button class="attention {{hasunatt? '':'on'}}" bindtap="unsubscribe" data-id="{{_id}}" data-openid="{{_openid}}" data-index="{{index}}" data-unatt="{{hasunatt}}" hidden="{{!isattention}}">{{hasunatt? '√已取关':'取消关注'}}</button>
+      <!-- 关注按钮 -->
+      <button class="attention {{hasatt? 'on':''}}" bindtap="attention" data-id="{{_id}}" data-openid="{{_openid}}" data-index="{{index}}" data-att="{{hasatt}}" hidden="{{isattention}}">{{hasatt? '√已关注':'+关注'}}</button>
+    </view>
+  </view>
+</template>

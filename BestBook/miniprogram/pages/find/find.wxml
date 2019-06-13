@@ -18,7 +18,7 @@
     </view>
   </view>
   <view class="upUser">
-    <template is="upUser" data="{{...juzi}}" />
-    <template is="sociality" data="" />
+    <template is="{{userInfo._openid && userInfo._openid === juzi._openid ? 'user-photo' : 'upUser'}}" data="{{...juzi}}" />
+    <template is="sociality" data="{{...juzi}}" />
   </view>
 </view>

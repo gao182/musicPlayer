@@ -3,7 +3,7 @@
 <template name="classify-title">
   <view class="classsify-title">
     <text class="title-text">{{name}}</text>
-    <text class="title-more">》</text>
+    <text class="title-more">...</text>
   </view>
 </template>
 

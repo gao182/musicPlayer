@@ -1,5 +1,5 @@
-// miniprogram/pages/others/others.js
-import { getuser, getusernewJuzi, getImginfo } from "../../src/database"
+// miniprogram/pages/myJuzi/myJuzi.js
+import { showerr, getuserJuzi, getImginfo } from "../../src/database"
 
 const app = getApp()
 Page({
@@ -8,37 +8,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isShowjuzi: true,
-    userInfo: {
-      popularity: 0,
-      attention: [],
-      fan: []
-    },
-    userjuzi: {}
+    isNew: true,
+    newjuzi: {},
+    hotjuzi: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (options.uid === app.globalData.userInfo._openid) {
-      wx.switchTab({
-        url: '../myself/myself'
-      })
-    }else{
-      getuser(options.uid).then(res => {
-        this.setData({ userInfo: res.data[0] })
-      }).catch(() => showsucc('查询失败','none'))
-      this.getuserAll(options.uid,0)
+    if (!app.globalData.userInfo._openid) {
+      showerr('请先登录')
     }
+    this.getMyjuzi(app.globalData.userInfo._openid,"desc")
   },
 
+
   //查询用户句子
-  getuserAll(uid,n){
+  getMyjuzi(uid,str) {
     wx.showLoading({
       title: '加载中',
     })
-    getusernewJuzi(uid,n).then(res => {
+    getuserJuzi(uid,str).then(res => {
       wx.hideLoading()
       let data = res.data
       getImginfo(res.data).then(res => {
@@ -55,15 +46,39 @@ Page({
           let t = new Date(e.time)
           e.time = t.toLocaleDateString() + ' ' + t.toLocaleTimeString()
         })
-        this.setData({userjuzi: data})
+        if (this.data.isNew)
+          this.setData({ newjuzi: data })
+        else
+          this.setData({ hotjuzi: data })
       })
     })
+  }, 
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
   },
-  
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
 
   },
 
@@ -81,29 +96,25 @@ Page({
 
   },
 
-  /*显示句子表单*/
-  showJuzi() {
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  },
+
+  /*显示最新*/
+  showNew() {
     this.setData({
-      isShowjuzi: true
+      isNew: true
     })
   },
 
-  /*显示句集表单*/
-  showJuji() {
+  /*显示最热*/
+  showHot() {
     this.setData({
-      isShowjuzi: false
+      isNew: false
     })
-  },
-
-  onattList() {
-    wx.navigateTo({
-      url: `../userList/userList?att_openid=${this.data.userInfo._openid}`,
-    })
-  },
-
-  onfanList() {
-    wx.navigateTo({
-      url: `../userList/userList?fan_openid=${this.data.userInfo._openid}`,
-    })
+    this.getMyjuzi(app.globalData.userInfo._openid, "asc")
   }
 })

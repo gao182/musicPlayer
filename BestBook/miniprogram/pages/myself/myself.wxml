@@ -11,18 +11,14 @@
 
   <!-- 用户句子 -->
   <view class="content">
-    <navigator url="../myJuzi/myJuzi" open-type="navigate">
-      <view class="my-juzi">
-        <text class="iconfont icon-text"></text>
-        <text class="text">我的句子</text>
-      </view>
-    </navigator>
-    <navigator url="../myJuji/myJuji" open-type="navigate">
-      <view class="my-juji">
-        <text class="iconfont icon-juji"></text>
-        <text class="text">我的句集</text>
-      </view>
-    </navigator>
+    <view class="my-juzi" bindtap="onmyjuzi">
+      <text class="iconfont icon-text"></text>
+      <text class="text">我的句子</text>
+    </view>
+    <!-- <view class="my-juji" bindtap="onmyjuji">
+      <text class="iconfont icon-juji"></text>
+      <text class="text">我的句集</text>
+    </view> -->
     <view class="my-comment">
       <text class="iconfont icon-comment"></text>
       <text class="text">我的评论</text>

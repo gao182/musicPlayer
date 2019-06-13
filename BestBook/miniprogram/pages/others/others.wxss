@@ -58,6 +58,7 @@ page {
 }
 
 .category {
+  justify-content: space-around;
   background-color: white;
   box-shadow: 0 0 rgb(255, 255, 255);
   border-bottom: 1px solid #eee;

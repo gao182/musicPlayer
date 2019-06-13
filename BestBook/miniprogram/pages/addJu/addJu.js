@@ -1,5 +1,5 @@
 // miniprogram/pages/addJu/addJu.js
-import { addData, getClassify, addClassify } from "../../src/database"
+import { showsucc,showerr, addData, getClassify, addClassify } from "../../src/database"
 const app = getApp()
 Page({
 
@@ -31,17 +31,7 @@ Page({
    */
   onLoad: function(options) {
     if (!app.globalData.userInfo._openid) {
-      wx.showToast({
-        icon: 'none',
-        title: '请先登录',
-        success() {
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1000)
-        }
-      })
+      showerr('请先登录')
     }
     this.getAlltabs()
   },
@@ -135,11 +125,7 @@ Page({
         if (labelstr.match(/,/g) === null || labelstr.match(/,/g).length < 2) {
           newlabel = this.data.addjuzi.label + ',' + newlabel
         } else {
-          wx.showToast({
-            title: '标签不超过3个',
-            icon: 'none',
-            duration: 2000
-          })
+          showsucc('标签不超过3个', 'none')
           return
         }
       }
@@ -209,11 +195,7 @@ Page({
       })
       addData(addjuzi)
     } else {
-      wx.showToast({
-        title: '请补充句子信息',
-        icon: 'none',
-        duration: 2000
-      })
+      showsucc('请补充句子信息','none')
     }
   },
 
@@ -244,11 +226,7 @@ Page({
       })
       addData(addjuji)
     } else {
-      wx.showToast({
-        title: '请补充句集信息',
-        icon: 'none',
-        duration: 2000
-      })
+      showsucc('请补充句子信息', 'none')
     }
   }
 })

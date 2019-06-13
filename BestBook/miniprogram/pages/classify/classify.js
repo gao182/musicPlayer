@@ -1,32 +1,35 @@
 // miniprogram/pages/classify/classify.js
-import { getImginfo, getClassify } from "../../src/database"
+import { showsucc,getImginfo, getClassify } from "../../src/database"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabs: {},
-    books: {},
-    authors: {}
+    tabs: [],
+    books: [],
+    authors: [],
+    tabPage: 0,
+    bookPage: 0,
+    authorPage: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAlls("classify-tabs")
-    this.getAlls("classify-books")
-    this.getAlls("classify-authors")
+    this.getAlls("classify-tabs",0)
+    this.getAlls("classify-books",0)
+    this.getAlls("classify-authors",0)
   },
 
   //获取分类
-  getAlls(style){
+  getAlls(style, n){
     wx.showLoading({
       title: '加载中',
     })
 
-    getClassify(style).then(res => {
+    getClassify(style, n).then(res => {
       let classify = res.data
       getImginfo(classify).then(res => {
         wx.hideLoading()  //隐藏加载
@@ -40,62 +43,51 @@ Page({
             }
           })
         })
-        if (style === "classify-tabs")
-          this.setData({ tabs: classify })
-        else if (style === "classify-books")
-          this.setData({ books: classify })
-        else if (style === "classify-authors")
-          this.setData({ authors: classify })
+        if (style === "classify-tabs"){
+          this.setData({ tabs: this.data.tabs.concat(classify) })
+        }
+        else if (style === "classify-books"){
+          this.setData({ books: this.data.books.concat(classify) })
+        }
+        else if (style === "classify-authors"){
+          this.setData({ authors: this.data.authors.concat(classify) })
+        }
       })
     }).catch(err => console.error(err))
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  loadTab(){
+    const db = wx.cloud.database()
+    db.collection('classify-tabs').count().then(res => {
+      if (this.data.tabPage >= 0 && res.total - this.data.tabPage > 10) {
+        this.data.tabPage += 10
+        console.log(this.data.tabPage)
+        this.getAlls("classify-tabs", this.data.tabPage)
+      } else {
+        showsucc('数据已经到底了', 'none')
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  loadBook() {
+    const db = wx.cloud.database()
+    db.collection('classify-books').count().then(res => {
+      if (this.data.bookPage >= 0 && res.total - this.data.bookPage > 10) {
+        this.data.bookPage += 10
+        this.getAlls("classify-books", this.data.bookPage)
+      } else {
+        showsucc('数据已经到底了', 'none')
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  loadAuthor() {
+    const db = wx.cloud.database()
+    db.collection('classify-authors').count().then(res => {
+      if (this.data.authorPage >= 0 && res.total - this.data.authorPage > 10) {
+        this.data.authorPage += 10
+        this.getAlls("classify-authors", this.data.authorPage)
+      } else {
+        showsucc('数据已经到底了', 'none')
+      }
+    })
   }
 })

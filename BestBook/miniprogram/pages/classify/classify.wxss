@@ -10,7 +10,6 @@
 .tab-classify .content {
   margin-top: 20rpx;
   display: flex;
-  overflow-x: scroll;
 }
 
 .tab-list, .book-list, .author-list {
@@ -24,7 +23,6 @@
   display: flex;
   flex-flow: wrap column;
   justify-content: space-between;
-  overflow-x: scroll;
 }
 
 .book-info, .author-info {

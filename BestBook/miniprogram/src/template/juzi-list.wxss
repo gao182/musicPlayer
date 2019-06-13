@@ -33,7 +33,7 @@
   font-size: 34rpx;
   color: #7e7d7d;
 }
-.whoUp .attention {
+.whoUp .attention, .btn-att .attention  {
   margin: 0;
   padding: 8rpx 12rpx;
   font-size: 30rpx;
@@ -43,7 +43,7 @@
   border-radius: 2px;
 }
 
-.whoUp .attention.on{
+.whoUp .attention.on, .btn-att .attention.on{
   color: #7e7d7d;
   border: 1px solid #7e7d7d;
 }
@@ -86,3 +86,6 @@
   box-sizing: border-box;
 }
 
+.collect.on, .icon-collect1.on{
+  color: #ff8b40;
+}

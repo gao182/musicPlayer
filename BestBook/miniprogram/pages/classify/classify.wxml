@@ -4,30 +4,42 @@
   <!-- 标签分类 -->
   <view class="tab-classify">
     <template is="classify-title" data="{{name: '标签分类'}}" />
-    <view class="content">
-      <block wx:for="{{tabs}}" wx:key="{{index}}">
-        <template is="tab-list" data="{{...item}}" />
-      </block>
-    </view>
+    <scroll-view bindscrolltolower="loadTab" scroll-x>
+      <view class="content">
+        <block wx:for="{{tabs}}" wx:key="{{index}}">
+          <navigator url="../myJuzi/myJuzi?tabs={{item.name}}" open-type="navigate">
+            <template is="tab-list" data="{{...item}}" />
+          </navigator>
+        </block>
+      </view>
+    </scroll-view>
   </view>
 
   <!-- 作品分类 -->
   <view class="book-classify">
     <template is="classify-title" data="{{name: '古诗/书籍/影视'}}" />
-    <view class="content">
-      <block wx:for="{{books}}" wx:key="{{index}}">
-        <template is="book-list" data="{{...item}}" />
-      </block>
-    </view>
+    <scroll-view bindscrolltolower="loadBook" scroll-x>
+      <view class="content">
+        <block wx:for="{{books}}" wx:key="{{index}}">
+          <navigator url="../myJuzi/myJuzi?books={{item.name}}" open-type="navigate">
+            <template is="book-list" data="{{...item}}" />
+          </navigator>
+        </block>
+      </view>
+    </scroll-view>
   </view>
 
   <!-- 作者分类 -->
   <view class="author-classify">
     <template is="classify-title" data="{{name: '名人名言'}}" />
-    <view class="content">
-      <block wx:for="{{authors}}" wx:key="{{index}}">
-        <template is="author-list" data="{{...item}}" />
-      </block>
-    </view>
+    <scroll-view bindscrolltolower="loadAuthor" scroll-x>
+      <view class="content">
+        <block wx:for="{{authors}}" wx:key="{{index}}">
+          <navigator url="../authorAll/authorAll?authors={{item.name}}" open-type="navigate">
+            <template is="author-list" data="{{...item}}" />
+          </navigator>
+        </block>
+      </view>
+    </scroll-view>
   </view>
 </view>

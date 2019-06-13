@@ -1,0 +1,23 @@
+/* miniprogram/pages/myJuji/myJuji.wxss */
+@import "../../src/template/classify.wxss";
+
+page {
+  background-color: #f4f4f6;
+}
+
+.category {
+  background-color: white;
+  box-shadow: 0 0 rgb(255, 255, 255);
+  border-bottom: 1px solid #eee;
+}
+
+.juji-panel {
+  width: 100%;
+}
+
+.book-list {
+  padding: 28rpx 28rpx;
+  padding-top: 36rpx;
+  background-color: white;
+  margin-bottom: 20rpx;
+}

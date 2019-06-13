@@ -4,7 +4,7 @@
   <!-- 搜索框 隐藏 -->
   <view class="search" hidden="{{!isSearch}}">
     <icon type="clear" size="16" bindtap="closeSearch"></icon>
-    <input placeholder="请输入..." placeholder-class="placeholder"></input>
+    <input placeholder="请输入..." placeholder-class="placeholder" bindinput="oninput" bindconfirm="search"></input>
     <text class="iconfont icon-search" bindtap="search"></text>
   </view>
 
@@ -20,7 +20,7 @@
   <view class="hotInfo" hidden="{{whoshow !== 2}}">
     <block wx:for="{{hotjuzi}}" wx:key="index">
       <view class="list-item">
-        <template is="{{userInfo._openid && userInfo._openid === item._openid ? 'user-photo' : 'upUser'}}" data="{{...item, attwho, noattwho}}" />
+        <template is="{{userInfo._openid && userInfo._openid === item._openid ? 'user-photo' : 'upUser'}}" data="{{...item,index}}" />
         <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
           <template is="juziShow" data="{{...item}}" />
         </navigator>
@@ -33,25 +33,35 @@
   <view class="newInfo" hidden="{{whoshow !== 3}}">
     <block wx:for="{{newjuzi}}" wx:key="index">
       <view class="list-item">
-        <template is="{{userInfo._openid && userInfo._openid === item._openid ? 'user-photo' : 'upUser'}}" data="{{...item}}" />
+        <template is="{{userInfo._openid && userInfo._openid === item._openid ? 'user-photo' : 'upUser'}}" data="{{...item,index}}" />
         <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
           <template is="juziShow" data="{{...item}}" />
         </navigator>
-        <template is="sociality" data="{{...item}}" />
+        <template is="sociality" data="{{...item,index}}" />
       </view>
     </block>
   </view>
 
   <!-- 展示关注列表 -->
   <view class="attentionInfo" hidden="{{whoshow !== 1}}">
-    <view class="noAttention" wx:if="{{true}}">
+    <view class="noAttention" wx:if="{{userInfo.attention.length <= 0}}">
       <view class="iconfont icon-author"></view>
-      你还没用关注任何人
+      你还没有关注任何人
     </view>
-    <view class="list-item" wx:else>
-      <template is="upUser" data="" />
-      <template is="juziShow" data="" />
-      <template is="sociality" data="" />
+    <view class="attention" wx:elif="{{userInfo.attention.length > 0}}">
+      <block wx:for="{{attjuzi}}" wx:key="index">
+        <view class="list-item">
+          <template is="upUser" data="{{...item,index}}" />
+          <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
+            <template is="juziShow" data="{{...item}}" />
+          </navigator>
+          <template is="sociality" data="{{...item,index}}" />
+        </view>
+      </block>
+    </view>
+    <view class="noAttention" wx:else>
+      <view class="iconfont icon-author"></view>
+      你还未登录，请登录后查看
     </view>
   </view>
 </view>

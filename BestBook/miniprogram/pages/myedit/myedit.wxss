@@ -1,0 +1,19 @@
+/* miniprogram/pages/myJuzi/myJuzi.wxss */
+@import "../../src/template/juzi-list.wxss";
+page{
+  background-color: #f4f4f6;
+}
+.category {
+  background-color: white;
+  box-shadow: 0 0 rgb(255, 255, 255);
+  border-bottom: 1px solid #eee;
+}
+
+.juzi-panel {
+  width: 100%;
+}
+
+.list-item{
+  margin-bottom: 20rpx;
+  background-color: white;
+}

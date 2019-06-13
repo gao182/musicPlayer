@@ -1,0 +1,46 @@
+<!--miniprogram/pages/myJuzi/myJuzi.wxml-->
+<import src="../../src/template/juzi-list.wxml" />
+<view class="container">
+  <view class="category">
+    <text class="category-juzi {{isNew? 'active':''}}" bindtap="showNew">最新</text>
+    <text class="category-juji {{isNew? '':'active'}}" bindtap="showHot">最热</text>
+  </view>
+
+  <!-- 展示最新列表 -->
+  <view class="juzi-panel" wx:if="{{isNew}}">
+    <view class="noAttention" wx:if="{{newjuzi.length < 1}}">
+      <view class="iconfont icon-text"></view>
+      你还没用发布任何信息
+    </view>
+    <view wx:else>
+      <block wx:for="{{newjuzi}}" wx:key="index">
+        <view class="list-item">
+          <template is="user-photo" data="{{...item}}" />
+          <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
+            <template is="juziShow" data="{{...item}}" />
+          </navigator>
+          <template is="sociality" data="" />
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 展示最热列表 -->
+  <view class="juzi-panel" wx:else>
+    <view class="noAttention" wx:if="{{hotjuzi.length < 1}}">
+      <view class="iconfont icon-text"></view>
+      你还没用发布任何信息
+    </view>
+    <view wx:else>
+      <block wx:for="{{hotjuzi}}" wx:key="index">
+        <view class="list-item">
+          <template is="user-photo" data="{{...item}}" />
+          <navigator url="../commentJuzi/commentJuzi?jzid={{item._id}}" open-type="navigate">
+            <template is="juziShow" data="{{...item}}" />
+          </navigator>
+          <template is="sociality" data="" />
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
